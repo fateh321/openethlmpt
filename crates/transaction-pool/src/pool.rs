@@ -321,14 +321,14 @@ where
             }
             Some(old) => {
                 let txs = &self.transactions;
-                let get_replace_tx = |tx| {
+                let get_replace_tx = |sender, tx| {
                     let sender_txs = txs
-                        .get(transaction.sender())
+                        .get(sender)
                         .map(|txs| txs.iter_transactions().as_slice());
                     ReplaceTransaction::new(tx, sender_txs)
                 };
-                let old_replace = get_replace_tx(&old.transaction);
-                let new_replace = get_replace_tx(transaction);
+                let old_replace = get_replace_tx(&old.transaction.sender(), &old.transaction);
+                let new_replace = get_replace_tx(&transaction.sender(), transaction);
 
                 match replace.should_replace(&old_replace, &new_replace) {
                     // We can't decide which of them should be removed, so accept both.
@@ -650,7 +650,9 @@ where
                                 match self.ready.is_ready(&tx) {
                                     Readiness::Ready => {
                                         //return transaction with score higher or equal to desired
-                                        if score >= &self.includable_boundary {
+                                        if score >= &self.includable_boundary
+                                            || tx.transaction.has_zero_gas_price()
+                                        {
                                             return Some(tx.transaction.clone());
                                         }
                                     }
@@ -737,7 +739,9 @@ where
 
             if tx_state == Readiness::Ready {
                 //return transaction with score higher or equal to desired
-                if best.score >= self.includable_boundary {
+                if best.score >= self.includable_boundary
+                    || best.transaction.transaction.has_zero_gas_price()
+                {
                     return Some(best.transaction.transaction);
                 }
             }

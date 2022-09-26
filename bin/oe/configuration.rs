@@ -428,6 +428,7 @@ impl Configuration {
                 custom_bootnodes: self.args.arg_bootnodes.is_some(),
                 check_seal: !self.args.flag_no_seal_check,
                 download_old_blocks: !self.args.flag_no_ancient_blocks,
+                new_transactions_stats_period: self.args.arg_new_transactions_stats_period,
                 verifier_settings: verifier_settings,
                 no_persistent_txqueue: self.args.flag_no_persistent_txqueue,
                 max_round_blocks_to_import: self.args.arg_max_round_blocks_to_import,
@@ -640,7 +641,7 @@ impl Configuration {
 
     fn pool_verification_options(&self) -> Result<pool::verifier::Options, String> {
         Ok(pool::verifier::Options {
-            // NOTE min_gas_price,block_gas_limit and block_base_fee will be overwritten right after start.
+            // NOTE min_gas_price,block_gas_limit block_base_fee, and allow_non_eoa_sender will be overwritten right after start.
             minimal_gas_price: U256::from(20_000_000) * 1_000u32,
             block_gas_limit: U256::max_value(),
             block_base_fee: None,
@@ -649,6 +650,7 @@ impl Configuration {
                 None => U256::max_value(),
             },
             no_early_reject: self.args.flag_tx_queue_no_early_reject,
+            allow_non_eoa_sender: false,
         })
     }
 
@@ -1563,6 +1565,7 @@ mod tests {
             stratum: None,
             check_seal: true,
             download_old_blocks: true,
+            new_transactions_stats_period: 0,
             verifier_settings: Default::default(),
             no_persistent_txqueue: false,
             max_round_blocks_to_import: 1,

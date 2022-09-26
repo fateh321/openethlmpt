@@ -44,8 +44,11 @@ use types::{
 
 use block::{Drain, OpenBlock};
 use client::{
-    ChainInfo, ChainMessageType, ChainNotify, Client, ClientConfig, ImportBlock, PrepareOpenBlock,
+    BlockInfo, ChainInfo, ChainMessageType, ChainNotify, Client, ClientConfig, ImportBlock,
+    PrepareOpenBlock,
 };
+use engines::{EngineSigner, Seal};
+use ethjson::crypto::publickey::{Public, Signature};
 use factory::Factories;
 use miner::Miner;
 use spec::Spec;
@@ -316,6 +319,44 @@ pub fn push_block_with_transactions(client: &Arc<Client>, transactions: &[Signed
 
     client.flush_queue();
     client.import_verified_blocks();
+}
+
+pub fn push_block_with_transactions_and_author(
+    client: &Arc<Client>,
+    transactions: &[SignedTransaction],
+    author: Address,
+    signer: Option<Box<dyn EngineSigner>>,
+) {
+    let test_engine = client.engine();
+
+    let mut b = client
+        .prepare_open_block(author, (0.into(), 5000000.into()), Bytes::new())
+        .unwrap();
+
+    for t in transactions {
+        b.push_transaction(t.clone(), None).unwrap();
+    }
+    let b = b.close_and_lock().unwrap();
+
+    test_engine.set_signer(signer);
+    let parent_header = client.best_block_header();
+    let b = match client.engine().generate_seal(&b, &parent_header) {
+        Seal::Regular(seal) => b.seal(&*client.engine(), seal).unwrap(),
+        _ => panic!("error generating seal"),
+    };
+
+    if let Err(e) = client.import_block(
+        Unverified::from_rlp(b.rlp_bytes(), client.engine().params().eip1559_transition).unwrap(),
+    ) {
+        panic!(
+            "error importing block which is valid by definition: {:?}",
+            e
+        );
+    }
+
+    client.flush_queue();
+    client.import_verified_blocks();
+    test_engine.step();
 }
 
 /// Creates dummy client (not test client) with corresponding blocks
@@ -643,4 +684,39 @@ impl ChainNotify for TestNotify {
         };
         self.messages.write().push(data);
     }
+}
+
+/// Returns engine signer with specified address
+pub fn dummy_engine_signer_with_address(addr: Address) -> Box<dyn EngineSigner> {
+    struct TestEngineSigner(Address);
+
+    impl TestEngineSigner {
+        fn with_address(addr: Address) -> Self {
+            Self(addr)
+        }
+    }
+
+    impl EngineSigner for TestEngineSigner {
+        fn sign(&self, _hash: H256) -> Result<Signature, ethjson::crypto::publickey::Error> {
+            unimplemented!()
+        }
+
+        fn address(&self) -> Address {
+            self.0
+        }
+
+        fn decrypt(
+            &self,
+            _auth_data: &[u8],
+            _cipher: &[u8],
+        ) -> Result<Vec<u8>, parity_crypto::publickey::Error> {
+            unimplemented!()
+        }
+
+        fn public(&self) -> Option<Public> {
+            unimplemented!()
+        }
+    }
+
+    Box::new(TestEngineSigner::with_address(addr))
 }

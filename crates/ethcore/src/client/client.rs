@@ -488,6 +488,52 @@ impl Importer {
             .epoch_transition(parent.number(), *header.parent_hash())
             .is_some();
 
+        if header.number() >= engine.params().validate_service_transactions_transition {
+            // Check if zero gas price transactions are certified to be service transactions
+            // using the Certifier contract. If they are not certified, the block is treated as invalid.
+            let service_transaction_checker = self.miner.service_transaction_checker();
+            if service_transaction_checker.is_some() {
+                match service_transaction_checker.unwrap().refresh_cache(client) {
+                    Ok(true) => {
+                        trace!(target: "client", "Service transaction cache was refreshed successfully");
+                    }
+                    Ok(false) => {
+                        trace!(target: "client", "Registrar or/and service transactions contract does not exist");
+                    }
+                    Err(e) => {
+                        error!(target: "client", "Error occurred while refreshing service transaction cache: {}", e)
+                    }
+                };
+            };
+            for t in &block.transactions {
+                if t.has_zero_gas_price() {
+                    match self.miner.service_transaction_checker() {
+                        None => {
+                            let e = "Service transactions are not allowed. You need to enable Certifier contract.";
+                            warn!(target: "client", "Service tx checker error: {:?}", e);
+                            bail!(e);
+                        }
+                        Some(ref checker) => match checker.check(client, &t) {
+                            Ok(true) => {}
+                            Ok(false) => {
+                                let e = format!(
+                                    "Service transactions are not allowed for the sender {:?}",
+                                    t.sender()
+                                );
+                                warn!(target: "client", "Service tx checker error: {:?}", e);
+                                bail!(e);
+                            }
+                            Err(e) => {
+                                debug!(target: "client", "Unable to verify service transaction: {:?}", e);
+                                warn!(target: "client", "Service tx checker error: {:?}", e);
+                                bail!(e);
+                            }
+                        },
+                    }
+                };
+            }
+        }
+
         // t_nb 8.0 Block enacting. Execution of transactions.
         let enact_result = enact_verified(
             block,
@@ -1955,7 +2001,7 @@ impl Call for Client {
             gas_used: U256::default(),
             gas_limit: U256::max_value(),
             //if gas pricing is not defined, force base_fee to zero
-            base_fee: if transaction.effective_gas_price(header.base_fee()) == 0.into() {
+            base_fee: if transaction.effective_gas_price(header.base_fee()).is_zero() {
                 Some(0.into())
             } else {
                 header.base_fee()
@@ -1988,7 +2034,7 @@ impl Call for Client {
 
         for &(ref t, analytics) in transactions {
             //if gas pricing is not defined, force base_fee to zero
-            if t.effective_gas_price(header.base_fee()) == 0.into() {
+            if t.effective_gas_price(header.base_fee()).is_zero() {
                 env_info.base_fee = Some(0.into());
             } else {
                 env_info.base_fee = header.base_fee()
@@ -2020,7 +2066,7 @@ impl Call for Client {
                 last_hashes: self.build_last_hashes(header.parent_hash()),
                 gas_used: U256::default(),
                 gas_limit: max,
-                base_fee: if t.effective_gas_price(header.base_fee()) == 0.into() {
+                base_fee: if t.effective_gas_price(header.base_fee()).is_zero() {
                     Some(0.into())
                 } else {
                     header.base_fee()
@@ -2699,6 +2745,10 @@ impl BlockChainClient for Client {
             .ready_transactions(self, max_len, ::miner::PendingOrdering::Priority)
     }
 
+    fn transaction(&self, tx_hash: &H256) -> Option<Arc<VerifiedTransaction>> {
+        self.importer.miner.transaction(tx_hash)
+    }
+
     fn signing_chain_id(&self) -> Option<u64> {
         self.engine.signing_chain_id(&self.latest_env_info())
     }
@@ -3236,7 +3286,15 @@ impl ImportExportBlocks for Client {
                 Err(e) => {
                     return Err(format!("Cannot import block #{}: {:?}", number, e));
                 }
-                Ok(_) => {}
+                // Ok(_) => {}
+                Ok(_) => {
+                    if number == 1 {
+                        warn!("First block now {:?}", Instant::now());
+                    }
+                    if number == 2 {
+                        warn!("Second block now {:?}", Instant::now());
+                    }
+                }
             }
             Ok(())
         };
@@ -3286,6 +3344,7 @@ impl ImportExportBlocks for Client {
             }
         };
         self.flush_queue();
+        warn!("Flushing {:?}", Instant::now());
         Ok(())
     }
 }

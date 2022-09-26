@@ -40,7 +40,6 @@ use v1::{
         external_signer::{SignerService, SigningQueue},
         fake_sign, verify_signature, NetworkSettings,
     },
-    metadata::Metadata,
     traits::Parity,
     types::{
         block_number_to_id, BlockNumber, Bytes, CallRequest, ChainStatus, Header, Histogram,
@@ -109,8 +108,6 @@ where
         + 'static,
     M: MinerService<State = S> + 'static,
 {
-    type Metadata = Metadata;
-
     fn transactions_limit(&self) -> Result<usize> {
         Ok(self.miner.queue_status().limits.max_count)
     }
@@ -301,7 +298,15 @@ where
     }
 
     fn pending_transactions_stats(&self) -> Result<BTreeMap<H256, TransactionStats>> {
-        let stats = self.sync.transactions_stats();
+        let stats = self.sync.pending_transactions_stats();
+        Ok(stats
+            .into_iter()
+            .map(|(hash, stats)| (hash, stats.into()))
+            .collect())
+    }
+
+    fn new_transactions_stats(&self) -> Result<BTreeMap<H256, TransactionStats>> {
+        let stats = self.sync.new_transactions_stats();
         Ok(stats
             .into_iter()
             .map(|(hash, stats)| (hash, stats.into()))

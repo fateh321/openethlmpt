@@ -52,10 +52,9 @@ use v1::{
         self,
         block_import::is_major_importing,
         deprecated::{self, DeprecationNotice},
-        dispatch::{default_gas_price, FullDispatcher},
+        dispatch::{default_gas_price, default_max_priority_fee_per_gas, FullDispatcher},
         errors, fake_sign, limit_logs,
     },
-    metadata::Metadata,
     traits::Eth,
     types::{
         block_number_to_id, Block, BlockNumber, BlockTransactions, Bytes, CallRequest, EthAccount,
@@ -609,8 +608,6 @@ where
     M: MinerService<State = T> + 'static,
     EM: ExternalMinerService + 'static,
 {
-    type Metadata = Metadata;
-
     fn protocol_version(&self) -> Result<String> {
         let version = self.sync.status().protocol_version.to_owned();
         Ok(format!("{}", version))
@@ -694,6 +691,22 @@ where
             &*self.miner,
             self.options.gas_price_percentile,
         )))
+    }
+
+    fn max_priority_fee_per_gas(&self) -> BoxFuture<U256> {
+        let latest_block = self.client.chain_info().best_block_number;
+        let eip1559_transition = self.client.engine().params().eip1559_transition;
+
+        if latest_block + 1 >= eip1559_transition {
+            Box::new(future::ok(default_max_priority_fee_per_gas(
+                &*self.client,
+                &*self.miner,
+                self.options.gas_price_percentile,
+                eip1559_transition,
+            )))
+        } else {
+            Box::new(future::done(Err(errors::eip1559_not_activated())))
+        }
     }
 
     fn fee_history(
@@ -805,8 +818,11 @@ where
 
                                                 gas_and_reward.push((
                                                     gas_used,
-                                                    txs[i].effective_gas_price(base_fee)
-                                                        - base_fee.unwrap_or_default(),
+                                                    txs[i]
+                                                        .effective_gas_price(base_fee)
+                                                        .saturating_sub(
+                                                            base_fee.unwrap_or_default(),
+                                                        ),
                                                 ));
                                             }
                                         }

@@ -384,6 +384,9 @@ pub trait BlockChainClient:
     /// List all ready transactions that should be propagated to other peers.
     fn transactions_to_propagate(&self) -> Vec<Arc<VerifiedTransaction>>;
 
+    /// Get verified transaction with specified transaction hash.
+    fn transaction(&self, tx_hash: &H256) -> Option<Arc<VerifiedTransaction>>;
+
     /// Sorted list of transaction gas prices from at least last sample_size blocks.
     fn gas_price_corpus(&self, sample_size: usize) -> ::stats::Corpus<U256> {
         let mut h = self.chain_info().best_block_hash;
@@ -407,6 +410,40 @@ pub trait BlockChainClient:
                         }
                     }))
                 });
+                h = block.parent_hash().clone();
+            }
+        }
+        corpus.into()
+    }
+
+    /// Sorted list of transaction priority gas prices from at least last sample_size blocks.
+    fn priority_gas_price_corpus(
+        &self,
+        sample_size: usize,
+        eip1559_transition: BlockNumber,
+    ) -> ::stats::Corpus<U256> {
+        let mut h = self.chain_info().best_block_hash;
+        let mut corpus = Vec::new();
+        while corpus.is_empty() {
+            for _ in 0..sample_size {
+                let block = match self.block(BlockId::Hash(h)) {
+                    Some(block) => block,
+                    None => return corpus.into(),
+                };
+
+                if block.number() == 0 || block.number() < eip1559_transition {
+                    return corpus.into();
+                }
+                block
+                    .transaction_views()
+                    .iter()
+                    .filter(
+                        |t| t.gas_price() > 0.into(), /* filter zero cost transactions */
+                    )
+                    .foreach(|t| {
+                        // As block.number() >= eip_1559_transition, the base_fee should exist
+                        corpus.push(t.effective_priority_gas_price(Some(block.header().base_fee())))
+                    });
                 h = block.parent_hash().clone();
             }
         }

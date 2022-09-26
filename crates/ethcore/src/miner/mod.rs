@@ -19,6 +19,7 @@
 //! Miner module
 //! Keeps track of transactions and currently sealed pending block.
 
+mod cache;
 mod miner;
 
 pub mod pool_client;
@@ -259,6 +260,9 @@ pub trait MinerService: Send + Sync {
 
     /// Suggested gas price.
     fn sensible_gas_price(&self) -> U256;
+
+    /// Suggested max priority fee gas price
+    fn sensible_max_priority_fee(&self) -> U256;
 
     /// Suggested gas limit.
     fn sensible_gas_limit(&self) -> U256;

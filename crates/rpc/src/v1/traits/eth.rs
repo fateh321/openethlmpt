@@ -27,9 +27,6 @@ use v1::types::{
 /// Eth rpc interface.
 #[rpc(server)]
 pub trait Eth {
-    /// RPC Metadata
-    type Metadata;
-
     /// Returns protocol version encoded as a string (quotes are necessary).
     #[rpc(name = "eth_protocolVersion")]
     fn protocol_version(&self) -> Result<String>;
@@ -59,6 +56,10 @@ pub trait Eth {
     /// Returns current gas_price.
     #[rpc(name = "eth_gasPrice")]
     fn gas_price(&self) -> BoxFuture<U256>;
+
+    /// Returns current max_priority_fee
+    #[rpc(name = "eth_maxPriorityFeePerGas")]
+    fn max_priority_fee_per_gas(&self) -> BoxFuture<U256>;
 
     /// Returns transaction fee history.
     #[rpc(name = "eth_feeHistory")]

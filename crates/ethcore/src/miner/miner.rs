@@ -40,7 +40,8 @@ use ethereum_types::{Address, H256, U256};
 use io::IoChannel;
 use miner::{
     self,
-    pool_client::{CachedNonceClient, NonceCache, PoolClient},
+    cache::Cache,
+    pool_client::{CachedNonceClient, PoolClient},
     MinerService,
 };
 use parking_lot::{Mutex, RwLock};
@@ -190,6 +191,7 @@ impl Default for MinerOptions {
                 block_base_fee: None,
                 tx_gas_limit: U256::max_value(),
                 no_early_reject: false,
+                allow_non_eoa_sender: false,
             },
         }
     }
@@ -248,7 +250,8 @@ pub struct Miner {
     params: RwLock<AuthoringParams>,
     #[cfg(feature = "work-notify")]
     listeners: RwLock<Vec<Box<dyn NotifyWork>>>,
-    nonce_cache: NonceCache,
+    nonce_cache: Cache<Address, U256>,
+    balance_cache: Cache<Address, U256>,
     gas_pricer: Mutex<GasPricer>,
     options: MinerOptions,
     // TODO [ToDr] Arc is only required because of price updater
@@ -283,6 +286,7 @@ impl Miner {
         let verifier_options = options.pool_verification_options.clone();
         let tx_queue_strategy = options.tx_queue_strategy;
         let nonce_cache_size = cmp::max(4096, limits.max_count / 4);
+        let balance_cache_size = cmp::max(4096, limits.max_count / 4);
         let refuse_service_transactions = options.refuse_service_transactions;
         let engine = spec.engine.clone();
 
@@ -299,7 +303,8 @@ impl Miner {
             #[cfg(feature = "work-notify")]
             listeners: RwLock::new(vec![]),
             gas_pricer: Mutex::new(gas_pricer),
-            nonce_cache: NonceCache::new(nonce_cache_size),
+            nonce_cache: Cache::<Address, U256>::new("Nonce", nonce_cache_size),
+            balance_cache: Cache::<Address, U256>::new("Balance", balance_cache_size),
             options,
             transaction_queue: Arc::new(TransactionQueue::new(
                 limits,
@@ -341,6 +346,7 @@ impl Miner {
                     block_base_fee: None,
                     tx_gas_limit: U256::max_value(),
                     no_early_reject: false,
+                    allow_non_eoa_sender: false,
                 },
                 reseal_min_period: Duration::from_secs(0),
                 force_sealing,
@@ -382,6 +388,7 @@ impl Miner {
         &self,
         block_gas_limit: U256,
         block_base_fee: Option<U256>,
+        allow_non_eoa_sender: bool,
     ) {
         trace!(target: "miner", "minimal_gas_price: recalibrating...");
         let txq = self.transaction_queue.clone();
@@ -391,6 +398,7 @@ impl Miner {
             options.minimal_gas_price = gas_price;
             options.block_gas_limit = block_gas_limit;
             options.block_base_fee = block_base_fee;
+            options.allow_non_eoa_sender = allow_non_eoa_sender;
             txq.set_verifier_options(options);
         });
 
@@ -430,6 +438,7 @@ impl Miner {
         PoolClient::new(
             chain,
             &self.nonce_cache,
+            &self.balance_cache,
             &*self.engine,
             &*self.accounts,
             self.service_transaction_checker.as_ref(),
@@ -541,6 +550,7 @@ impl Miner {
                     .engine
                     .calculate_base_fee(&chain.best_block_header())
                     .unwrap_or_default(),
+                enforce_priority_fees: true,
             },
         );
 
@@ -1006,6 +1016,14 @@ impl miner::MinerService for Miner {
         self.transaction_queue.current_worst_gas_price() * 110u32 / 100
     }
 
+    fn sensible_max_priority_fee(&self) -> U256 {
+        // 10% above our minimum.
+        self.transaction_queue
+            .current_worst_effective_priority_fee()
+            * 110u32
+            / 100
+    }
+
     fn sensible_gas_limit(&self) -> U256 {
         self.params.read().gas_range_target.0 / 5
     }
@@ -1190,6 +1208,7 @@ impl miner::MinerService for Miner {
                     .engine
                     .calculate_base_fee(&chain.best_block_header())
                     .unwrap_or_default(),
+                enforce_priority_fees: false,
             };
 
             if let Some(ref f) = filter {
@@ -1369,7 +1388,7 @@ impl miner::MinerService for Miner {
     }
 
     fn is_currently_sealing(&self) -> bool {
-        self.sealing.lock().enabled
+        self.sealing.lock().enabled && self.engine.is_allowed_to_seal()
     }
 
     fn work_package<C>(&self, chain: &C) -> Option<(H256, BlockNumber, u64, U256)>
@@ -1414,11 +1433,11 @@ impl miner::MinerService for Miner {
         };
 
         result.and_then(|sealed| {
-			let n = sealed.header.number();
-			let h = sealed.header.hash();
-			info!(target: "miner", "Submitted block imported OK. #{}: {}", Colour::White.bold().paint(format!("{}", n)), Colour::White.bold().paint(format!("{:x}", h)));
-			Ok(sealed)
-		})
+            let n = sealed.header.number();
+            let h = sealed.header.hash();
+            info!(target: "miner", "Submitted block imported OK. #{}: {}", Colour::White.bold().paint(format!("{}", n)), Colour::White.bold().paint(format!("{:x}", h)));
+            Ok(sealed)
+        })
     }
 
     // t_nb 10 notify miner about new include blocks
@@ -1444,6 +1463,7 @@ impl miner::MinerService for Miner {
         if has_new_best_block {
             // Clear nonce cache
             self.nonce_cache.clear();
+            self.balance_cache.clear();
         }
 
         // t_nb 10.1 First update gas limit in transaction queue and minimal gas price.
@@ -1451,33 +1471,36 @@ impl miner::MinerService for Miner {
         let gas_limit = chain.best_block_header().gas_limit()
             // multiplication neccesary only if OE nodes are the only miners in network, not really essential but wont hurt
             *  if self.engine.gas_limit_override(&chain.best_block_header()).is_none() {
-                self
+            self
                 .engine
                 .schedule(chain.best_block_header().number() + 1)
                 .eip1559_gas_limit_bump
-                } else {
-                    1
-                };
-        self.update_transaction_queue_limits(gas_limit, base_fee);
+        } else {
+            1
+        };
+        let allow_non_eoa_sender = self
+            .engine
+            .allow_non_eoa_sender(chain.best_block_header().number() + 1);
+        self.update_transaction_queue_limits(gas_limit, base_fee, allow_non_eoa_sender);
 
         // t_nb 10.2 Then import all transactions from retracted blocks (retracted means from side chain).
         let client = self.pool_client(chain);
         {
             retracted
-				.par_iter()
-				.for_each(|hash| {
-					let block = chain.block(BlockId::Hash(*hash))
-						.expect("Client is sending message after commit to db and inserting to chain; the block is available; qed");
-					let txs = block.transactions()
-						.into_iter()
-						.map(pool::verifier::Transaction::Retracted)
+                .par_iter()
+                .for_each(|hash| {
+                    let block = chain.block(BlockId::Hash(*hash))
+                        .expect("Client is sending message after commit to db and inserting to chain; the block is available; qed");
+                    let txs = block.transactions()
+                        .into_iter()
+                        .map(pool::verifier::Transaction::Retracted)
                         .collect();
                     // t_nb 10.2
-					let _ = self.transaction_queue.import(
-						client.clone(),
-						txs,
-					);
-				});
+                    let _ = self.transaction_queue.import(
+                        client.clone(),
+                        txs,
+                    );
+                });
         }
 
         if has_new_best_block || (imported.len() > 0 && self.options.reseal_on_uncle) {
@@ -1507,6 +1530,7 @@ impl miner::MinerService for Miner {
             if let Some(ref channel) = *self.io_channel.read() {
                 let queue = self.transaction_queue.clone();
                 let nonce_cache = self.nonce_cache.clone();
+                let balance_cache = self.balance_cache.clone();
                 let engine = self.engine.clone();
                 let accounts = self.accounts.clone();
                 let service_transaction_checker = self.service_transaction_checker.clone();
@@ -1515,6 +1539,7 @@ impl miner::MinerService for Miner {
                     let client = PoolClient::new(
                         chain,
                         &nonce_cache,
+                        &balance_cache,
                         &*engine,
                         &*accounts,
                         service_transaction_checker.as_ref(),
@@ -1600,7 +1625,9 @@ mod tests {
 
     use client::{ChainInfo, EachBlockWith, ImportSealedBlock, TestBlockChainClient};
     use miner::{MinerService, PendingOrdering};
-    use test_helpers::{generate_dummy_client, generate_dummy_client_with_spec};
+    use test_helpers::{
+        dummy_engine_signer_with_address, generate_dummy_client, generate_dummy_client_with_spec,
+    };
     use types::transaction::{Transaction, TypedTransaction};
 
     #[test]
@@ -1660,6 +1687,7 @@ mod tests {
                     block_base_fee: None,
                     tx_gas_limit: U256::max_value(),
                     no_early_reject: false,
+                    allow_non_eoa_sender: false,
                 },
             },
             GasPricer::new_fixed(0u64.into()),
@@ -1802,6 +1830,40 @@ mod tests {
                 .ready_transactions(&client, 10, PendingOrdering::Priority)
                 .len(),
             1
+        );
+    }
+
+    #[test]
+    fn should_activate_eip_3607_according_to_spec() {
+        // given
+        let spec = Spec::new_test_eip3607();
+        let miner = Miner::new_for_tests(&spec, None);
+        let client = TestBlockChainClient::new_with_spec(spec);
+
+        let imported = [H256::zero()];
+        let empty = &[];
+
+        // the client best block is below EIP-3607 transition number
+        miner.chain_new_blocks(&client, &imported, empty, &imported, empty, false);
+        assert!(
+            miner.queue_status().options.allow_non_eoa_sender,
+            "The client best block is below EIP-3607 transition number. Non EOA senders should be allowed"
+        );
+
+        // the client best block equals EIP-3607 transition number
+        client.add_block(EachBlockWith::Nothing, |header| header);
+        miner.chain_new_blocks(&client, &imported, empty, &imported, empty, false);
+        assert!(
+            !miner.queue_status().options.allow_non_eoa_sender,
+            "The client best block equals EIP-3607 transition number. Non EOA senders should not be allowed"
+        );
+
+        // the client best block is above EIP-3607 transition number
+        client.add_block(EachBlockWith::Nothing, |header| header);
+        miner.chain_new_blocks(&client, &imported, empty, &imported, empty, false);
+        assert!(
+            !miner.queue_status().options.allow_non_eoa_sender,
+            "The client best block is above EIP-3607 transition number. Non EOA senders should not be allowed"
         );
     }
 
@@ -2066,6 +2128,31 @@ mod tests {
 
         let client = generate_dummy_client(2);
         miner.update_sealing(&*client, ForceUpdateSealing::No);
+
+        assert!(miner.is_currently_sealing());
+    }
+
+    #[test]
+    fn should_not_mine_if_is_not_allowed_to_seal() {
+        let spec = Spec::new_test_round();
+        let miner = Miner::new_for_tests_force_sealing(&spec, None, true);
+        assert!(!miner.is_currently_sealing());
+    }
+
+    #[test]
+    fn should_mine_if_is_allowed_to_seal() {
+        let verifier: Address = [
+            0x7d, 0x57, 0x7a, 0x59, 0x7b, 0x27, 0x42, 0xb4, 0x98, 0xcb, 0x5c, 0xf0, 0xc2, 0x6c,
+            0xdc, 0xd7, 0x26, 0xd3, 0x9e, 0x6e,
+        ]
+        .into();
+
+        let spec = Spec::new_test_round();
+        let client: Arc<dyn EngineClient> = generate_dummy_client(2);
+
+        let miner = Miner::new_for_tests_force_sealing(&spec, None, true);
+        miner.engine.register_client(Arc::downgrade(&client));
+        miner.set_author(Author::Sealer(dummy_engine_signer_with_address(verifier)));
 
         assert!(miner.is_currently_sealing());
     }

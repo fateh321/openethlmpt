@@ -31,9 +31,6 @@ use v1::types::{
 /// Parity-specific rpc interface.
 #[rpc(server)]
 pub trait Parity {
-    /// RPC Metadata
-    type Metadata;
-
     /// Returns current transactions limit.
     #[rpc(name = "parity_transactionsLimit")]
     fn transactions_limit(&self) -> Result<usize>;
@@ -157,6 +154,10 @@ pub trait Parity {
     /// Returns propagation statistics on transactions pending in the queue.
     #[rpc(name = "parity_pendingTransactionsStats")]
     fn pending_transactions_stats(&self) -> Result<BTreeMap<H256, TransactionStats>>;
+
+    /// Returns propagation statistics on transactions recently added into the queue.
+    #[rpc(name = "parity_newTransactionsStats")]
+    fn new_transactions_stats(&self) -> Result<BTreeMap<H256, TransactionStats>>;
 
     /// Returns a list of current and past local transactions with status details.
     #[rpc(name = "parity_localTransactions")]

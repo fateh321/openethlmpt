@@ -194,6 +194,7 @@ fn execute_import(cmd: ImportBlockchain) -> Result<(), String> {
         12,
     );
 
+    warn!("Time now 1 {:?}", Instant::now());
     client_config.queue.verifier_settings = cmd.verifier_settings;
 
     let restoration_db_handler = db::restoration_db_handler(&client_path, &client_config);
@@ -241,7 +242,7 @@ fn execute_import(cmd: ImportBlockchain) -> Result<(), String> {
     service
         .register_io_handler(informant)
         .map_err(|_| "Unable to register informant handler".to_owned())?;
-
+    warn!("Time now 1 {:?}", Instant::now());
     client.import_blocks(instream, cmd.format)?;
 
     // save user defaults
