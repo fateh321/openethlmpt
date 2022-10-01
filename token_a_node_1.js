@@ -31,7 +31,7 @@ async function demo(res) {keys = res;
 	let len = keys.length;
 	console.log(len);
 	const batch = 4000;
-	for (let i = 0; i < batch; i++) {
+	for (let i = batch; i < 2*batch; i++) {
 		
 		const _value = 10000000
 

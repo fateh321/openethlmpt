@@ -557,93 +557,96 @@ impl Miner {
         let took_ms = |elapsed: &Duration| {
             elapsed.as_secs() * 1000 + elapsed.subsec_nanos() as u64 / 1_000_000
         };
-
+        let txn_num = queue_txs.len().clone();
+        let block_num = open_block.header.number();
         let block_start = Instant::now();
         debug!(target: "miner", "Attempting to push {} transactions.", engine_txs.len() + queue_txs.len());
 
-        for transaction in engine_txs
-            .into_iter()
-            .chain(queue_txs.into_iter().map(|tx| tx.signed().clone()))
-        {
-            let start = Instant::now();
+        if txn_num >=150 || block_num <20 {
+            for transaction in engine_txs
+                .into_iter()
+                .chain(queue_txs.into_iter().map(|tx| tx.signed().clone()))
+            {
+                let start = Instant::now();
 
-            let hash = transaction.hash();
-            let sender = transaction.sender();
+                let hash = transaction.hash();
+                let sender = transaction.sender();
 
-            // Re-verify transaction again vs current state.
-            let result = client
-                .verify_for_pending_block(&transaction, &open_block.header)
-                .map_err(|e| e.into())
-                .and_then(|_| open_block.push_transaction(transaction, None));
+                // Re-verify transaction again vs current state.
+                let result = client
+                    .verify_for_pending_block(&transaction, &open_block.header)
+                    .map_err(|e| e.into())
+                    .and_then(|_| open_block.push_transaction(transaction, None));
 
-            let took = start.elapsed();
+                let took = start.elapsed();
 
-            // Check for heavy transactions
-            match self.options.tx_queue_penalization {
-                Penalization::Enabled {
-                    ref offend_threshold,
-                } if &took > offend_threshold => {
-                    senders_to_penalize.insert(sender);
-                    debug!(target: "miner", "Detected heavy transaction ({} ms). Penalizing sender.", took_ms(&took));
-                }
-                _ => {}
-            }
-
-            debug!(target: "miner", "Adding tx {:?} took {} ms", hash, took_ms(&took));
-            match result {
-                Err(Error(
-                    ErrorKind::Execution(ExecutionError::BlockGasLimitReached {
-                        gas_limit,
-                        gas_used,
-                        gas,
-                    }),
-                    _,
-                )) => {
-                    debug!(target: "miner", "Skipping adding transaction to block because of gas limit: {:?} (limit: {:?}, used: {:?}, gas: {:?})", hash, gas_limit, gas_used, gas);
-
-                    // Penalize transaction if it's above current gas limit
-                    if gas > gas_limit {
-                        debug!(target: "txqueue", "[{:?}] Transaction above block gas limit.", hash);
-                        invalid_transactions.insert(hash);
+                // Check for heavy transactions
+                match self.options.tx_queue_penalization {
+                    Penalization::Enabled {
+                        ref offend_threshold,
+                    } if &took > offend_threshold => {
+                        senders_to_penalize.insert(sender);
+                        debug!(target: "miner", "Detected heavy transaction ({} ms). Penalizing sender.", took_ms(&took));
                     }
+                    _ => {}
+                }
 
-                    // Exit early if gas left is smaller then min_tx_gas
-                    let gas_left = gas_limit - gas_used;
-                    if gas_left < min_tx_gas {
-                        debug!(target: "miner", "Remaining gas is lower than minimal gas for a transaction. Block is full.");
-                        break;
-                    }
+                debug!(target: "miner", "Adding tx {:?} took {} ms", hash, took_ms(&took));
+                match result {
+                    Err(Error(
+                            ErrorKind::Execution(ExecutionError::BlockGasLimitReached {
+                                                     gas_limit,
+                                                     gas_used,
+                                                     gas,
+                                                 }),
+                            _,
+                        )) => {
+                        debug!(target: "miner", "Skipping adding transaction to block because of gas limit: {:?} (limit: {:?}, used: {:?}, gas: {:?})", hash, gas_limit, gas_used, gas);
 
-                    // Avoid iterating over the entire queue in case block is almost full.
-                    skipped_transactions += 1;
-                    if skipped_transactions > MAX_SKIPPED_TRANSACTIONS {
-                        debug!(target: "miner", "Reached skipped transactions threshold. Assuming block is full.");
-                        break;
+                        // Penalize transaction if it's above current gas limit
+                        if gas > gas_limit {
+                            debug!(target: "txqueue", "[{:?}] Transaction above block gas limit.", hash);
+                            invalid_transactions.insert(hash);
+                        }
+
+                        // Exit early if gas left is smaller then min_tx_gas
+                        let gas_left = gas_limit - gas_used;
+                        if gas_left < min_tx_gas {
+                            debug!(target: "miner", "Remaining gas is lower than minimal gas for a transaction. Block is full.");
+                            break;
+                        }
+
+                        // Avoid iterating over the entire queue in case block is almost full.
+                        skipped_transactions += 1;
+                        if skipped_transactions > MAX_SKIPPED_TRANSACTIONS {
+                            debug!(target: "miner", "Reached skipped transactions threshold. Assuming block is full.");
+                            break;
+                        }
                     }
-                }
-                // Invalid nonce error can happen only if previous transaction is skipped because of gas limit.
-                // If there is errornous state of transaction queue it will be fixed when next block is imported.
-                Err(Error(
-                    ErrorKind::Execution(ExecutionError::InvalidNonce { expected, got }),
-                    _,
-                )) => {
-                    debug!(target: "miner", "Skipping adding transaction to block because of invalid nonce: {:?} (expected: {:?}, got: {:?})", hash, expected, got);
-                }
-                // already have transaction - ignore
-                Err(Error(ErrorKind::Transaction(transaction::Error::AlreadyImported), _)) => {}
-                Err(Error(ErrorKind::Transaction(transaction::Error::NotAllowed), _)) => {
-                    not_allowed_transactions.insert(hash);
-                    debug!(target: "miner", "Skipping non-allowed transaction for sender {:?}", hash);
-                }
-                Err(e) => {
-                    debug!(target: "txqueue", "[{:?}] Marking as invalid: {:?}.", hash, e);
-                    debug!(
+                    // Invalid nonce error can happen only if previous transaction is skipped because of gas limit.
+                    // If there is errornous state of transaction queue it will be fixed when next block is imported.
+                    Err(Error(
+                            ErrorKind::Execution(ExecutionError::InvalidNonce { expected, got }),
+                            _,
+                        )) => {
+                        debug!(target: "miner", "Skipping adding transaction to block because of invalid nonce: {:?} (expected: {:?}, got: {:?})", hash, expected, got);
+                    }
+                    // already have transaction - ignore
+                    Err(Error(ErrorKind::Transaction(transaction::Error::AlreadyImported), _)) => {}
+                    Err(Error(ErrorKind::Transaction(transaction::Error::NotAllowed), _)) => {
+                        not_allowed_transactions.insert(hash);
+                        debug!(target: "miner", "Skipping non-allowed transaction for sender {:?}", hash);
+                    }
+                    Err(e) => {
+                        debug!(target: "txqueue", "[{:?}] Marking as invalid: {:?}.", hash, e);
+                        debug!(
                         target: "miner", "Error adding transaction to block: number={}. transaction_hash={:?}, Error: {:?}", block_number, hash, e
                     );
-                    invalid_transactions.insert(hash);
+                        invalid_transactions.insert(hash);
+                    }
+                    // imported ok
+                    _ => tx_count += 1,
                 }
-                // imported ok
-                _ => tx_count += 1,
             }
         }
         let elapsed = block_start.elapsed();
