@@ -30,7 +30,7 @@ async function demo(res) {keys = res;
 	console.log("fuck you");
 	let len = keys.length;
 	console.log(len);
-	const batch = 1000;
+	const batch = 4000;
 	for (let i = 0; i < batch; i++) {
 		
 		const _value = 10000000
@@ -62,7 +62,7 @@ async function demo(res) {keys = res;
 		   console.log(`Tx successfull with hash: ${createReceipt.transactionHash}`);
 		};
 		erc20_1tx();
-		await sleep(1);
+		// await sleep(1);
 
 
 	}
