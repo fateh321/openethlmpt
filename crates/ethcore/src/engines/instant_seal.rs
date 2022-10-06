@@ -79,7 +79,7 @@ impl<M: Machine> Engine<M> for InstantSeal<M> {
     fn generate_seal(&self, block: &ExecutedBlock, _parent: &Header) -> Seal {
         // if !block.transactions.is_empty() {
         // let mut txc = 0;
-        if self.txc.load(Ordering::SeqCst) < 20 || block.transactions.len() >= 150 {
+        if self.txc.load(Ordering::SeqCst) < 20 || block.transactions.len() >= 20 {
             // if block.transactions.len() >= 5 || (!block.transactions.is_empty() && self.txc.load(Ordering::SeqCst) < 5) {
             // if !block.transactions.is_empty() {
             if !block.transactions.is_empty() {

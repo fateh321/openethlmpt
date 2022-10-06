@@ -562,7 +562,7 @@ impl Miner {
         let block_start = Instant::now();
         debug!(target: "miner", "Attempting to push {} transactions.", engine_txs.len() + queue_txs.len());
 
-        if txn_num >=150 || block_num <20 {
+        if txn_num >=20 || block_num <20 {
             for transaction in engine_txs
                 .into_iter()
                 .chain(queue_txs.into_iter().map(|tx| tx.signed().clone()))
