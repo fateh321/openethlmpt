@@ -7,7 +7,7 @@ const abi=JSON.parse(fs.readFileSync(path.resolve(__dirname, "router/router_sol_
 const privKey =
    '4f3ea91012fc27131fdf2a62568725654726c04c46572c3eb00754b5455fe3e7'; // Genesis private key
 const address = '0x93a88B7893FCDb130ab9209f63AB2e6854e617A1';
-const web3 = new Web3('http://localhost:8540');
+const web3 = new Web3('http://localhost:8545');
 // Deploy contract
 const deploy = async () => {
    console.log('Attempting to deploy from account:', address);
