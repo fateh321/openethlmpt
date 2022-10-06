@@ -1,6 +1,6 @@
 [parity]
 chain = "spec.json"
-base_path = "/home/srisht/project_repo/lmpt/openethlmpt/parity0"
+base_path = "/home/ubuntu/lmpt/openethlmpt/parity0"
 [network]
 port = 30300
 [rpc]
