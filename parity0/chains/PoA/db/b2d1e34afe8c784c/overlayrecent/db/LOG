@@ -1,0 +1,1295 @@
+2022/10/06-01:43:57.470958 7fcf444f3d80 RocksDB version: 5.14.3
+2022/10/06-01:43:57.470969 7fcf444f3d80 Git sha rocksdb_build_git_sha:@0@
+2022/10/06-01:43:57.470970 7fcf444f3d80 Compile date Sep 26 2022
+2022/10/06-01:43:57.470971 7fcf444f3d80 DB SUMMARY
+2022/10/06-01:43:57.470986 7fcf444f3d80 CURRENT file:  CURRENT
+2022/10/06-01:43:57.470987 7fcf444f3d80 IDENTITY file:  IDENTITY
+2022/10/06-01:43:57.470990 7fcf444f3d80 MANIFEST file:  MANIFEST-000001 size: 13 Bytes
+2022/10/06-01:43:57.470991 7fcf444f3d80 SST files in /home/srisht/project_repo/lmpt/openethlmpt/parity0/chains/PoA/db/b2d1e34afe8c784c/overlayrecent/db dir, Total Num: 0, files: 
+2022/10/06-01:43:57.470992 7fcf444f3d80 Write Ahead Log file in /home/srisht/project_repo/lmpt/openethlmpt/parity0/chains/PoA/db/b2d1e34afe8c784c/overlayrecent/db: 000003.log size: 0 ; 
+2022/10/06-01:43:57.470993 7fcf444f3d80                         Options.error_if_exists: 0
+2022/10/06-01:43:57.470994 7fcf444f3d80                       Options.create_if_missing: 1
+2022/10/06-01:43:57.470994 7fcf444f3d80                         Options.paranoid_checks: 1
+2022/10/06-01:43:57.470995 7fcf444f3d80                                     Options.env: 0x55d524d12800
+2022/10/06-01:43:57.470996 7fcf444f3d80                                Options.info_log: 0x55d5258f0650
+2022/10/06-01:43:57.470996 7fcf444f3d80                Options.max_file_opening_threads: 16
+2022/10/06-01:43:57.471021 7fcf444f3d80                              Options.statistics: (nil)
+2022/10/06-01:43:57.471022 7fcf444f3d80                               Options.use_fsync: 0
+2022/10/06-01:43:57.471022 7fcf444f3d80                       Options.max_log_file_size: 0
+2022/10/06-01:43:57.471023 7fcf444f3d80                  Options.max_manifest_file_size: 18446744073709551615
+2022/10/06-01:43:57.471023 7fcf444f3d80                   Options.log_file_time_to_roll: 0
+2022/10/06-01:43:57.471024 7fcf444f3d80                       Options.keep_log_file_num: 1
+2022/10/06-01:43:57.471024 7fcf444f3d80                    Options.recycle_log_file_num: 0
+2022/10/06-01:43:57.471025 7fcf444f3d80                         Options.allow_fallocate: 1
+2022/10/06-01:43:57.471025 7fcf444f3d80                        Options.allow_mmap_reads: 0
+2022/10/06-01:43:57.471026 7fcf444f3d80                       Options.allow_mmap_writes: 0
+2022/10/06-01:43:57.471026 7fcf444f3d80                        Options.use_direct_reads: 0
+2022/10/06-01:43:57.471027 7fcf444f3d80                        Options.use_direct_io_for_flush_and_compaction: 0
+2022/10/06-01:43:57.471027 7fcf444f3d80          Options.create_missing_column_families: 0
+2022/10/06-01:43:57.471028 7fcf444f3d80                              Options.db_log_dir: 
+2022/10/06-01:43:57.471028 7fcf444f3d80                                 Options.wal_dir: /home/srisht/project_repo/lmpt/openethlmpt/parity0/chains/PoA/db/b2d1e34afe8c784c/overlayrecent/db
+2022/10/06-01:43:57.471028 7fcf444f3d80                Options.table_cache_numshardbits: 6
+2022/10/06-01:43:57.471029 7fcf444f3d80                      Options.max_subcompactions: 1
+2022/10/06-01:43:57.471029 7fcf444f3d80                  Options.max_background_flushes: -1
+2022/10/06-01:43:57.471030 7fcf444f3d80                         Options.WAL_ttl_seconds: 0
+2022/10/06-01:43:57.471030 7fcf444f3d80                       Options.WAL_size_limit_MB: 0
+2022/10/06-01:43:57.471031 7fcf444f3d80             Options.manifest_preallocation_size: 4194304
+2022/10/06-01:43:57.471031 7fcf444f3d80                     Options.is_fd_close_on_exec: 1
+2022/10/06-01:43:57.471032 7fcf444f3d80                   Options.advise_random_on_open: 1
+2022/10/06-01:43:57.471032 7fcf444f3d80                    Options.db_write_buffer_size: 9586980
+2022/10/06-01:43:57.471033 7fcf444f3d80                    Options.write_buffer_manager: 0x55d52609aeb0
+2022/10/06-01:43:57.471033 7fcf444f3d80         Options.access_hint_on_compaction_start: 1
+2022/10/06-01:43:57.471034 7fcf444f3d80  Options.new_table_reader_for_compaction_inputs: 0
+2022/10/06-01:43:57.471034 7fcf444f3d80           Options.random_access_max_buffer_size: 1048576
+2022/10/06-01:43:57.471035 7fcf444f3d80                      Options.use_adaptive_mutex: 0
+2022/10/06-01:43:57.471039 7fcf444f3d80                            Options.rate_limiter: (nil)
+2022/10/06-01:43:57.471040 7fcf444f3d80     Options.sst_file_manager.rate_bytes_per_sec: 0
+2022/10/06-01:43:57.471040 7fcf444f3d80                       Options.wal_recovery_mode: 2
+2022/10/06-01:43:57.471041 7fcf444f3d80                  Options.enable_thread_tracking: 0
+2022/10/06-01:43:57.471041 7fcf444f3d80                  Options.enable_pipelined_write: 0
+2022/10/06-01:43:57.471042 7fcf444f3d80         Options.allow_concurrent_memtable_write: 1
+2022/10/06-01:43:57.471042 7fcf444f3d80      Options.enable_write_thread_adaptive_yield: 1
+2022/10/06-01:43:57.471042 7fcf444f3d80             Options.write_thread_max_yield_usec: 100
+2022/10/06-01:43:57.471043 7fcf444f3d80            Options.write_thread_slow_yield_usec: 3
+2022/10/06-01:43:57.471043 7fcf444f3d80                               Options.row_cache: None
+2022/10/06-01:43:57.471044 7fcf444f3d80                              Options.wal_filter: None
+2022/10/06-01:43:57.471044 7fcf444f3d80             Options.avoid_flush_during_recovery: 0
+2022/10/06-01:43:57.471045 7fcf444f3d80             Options.allow_ingest_behind: 0
+2022/10/06-01:43:57.471045 7fcf444f3d80             Options.preserve_deletes: 0
+2022/10/06-01:43:57.471046 7fcf444f3d80             Options.two_write_queues: 0
+2022/10/06-01:43:57.471046 7fcf444f3d80             Options.manual_wal_flush: 0
+2022/10/06-01:43:57.471047 7fcf444f3d80             Options.max_background_jobs: 4
+2022/10/06-01:43:57.471047 7fcf444f3d80             Options.max_background_compactions: -1
+2022/10/06-01:43:57.471048 7fcf444f3d80             Options.avoid_flush_during_shutdown: 0
+2022/10/06-01:43:57.471048 7fcf444f3d80           Options.writable_file_max_buffer_size: 1048576
+2022/10/06-01:43:57.471049 7fcf444f3d80             Options.delayed_write_rate : 16777216
+2022/10/06-01:43:57.471049 7fcf444f3d80             Options.max_total_wal_size: 0
+2022/10/06-01:43:57.471050 7fcf444f3d80             Options.delete_obsolete_files_period_micros: 21600000000
+2022/10/06-01:43:57.471050 7fcf444f3d80                   Options.stats_dump_period_sec: 600
+2022/10/06-01:43:57.471050 7fcf444f3d80                          Options.max_open_files: 512
+2022/10/06-01:43:57.471051 7fcf444f3d80                          Options.bytes_per_sync: 1048576
+2022/10/06-01:43:57.471051 7fcf444f3d80                      Options.wal_bytes_per_sync: 0
+2022/10/06-01:43:57.471052 7fcf444f3d80       Options.compaction_readahead_size: 0
+2022/10/06-01:43:57.471052 7fcf444f3d80 Compression algorithms supported:
+2022/10/06-01:43:57.471053 7fcf444f3d80 	kZSTDNotFinalCompression supported: 0
+2022/10/06-01:43:57.471054 7fcf444f3d80 	kZSTD supported: 0
+2022/10/06-01:43:57.471055 7fcf444f3d80 	kXpressCompression supported: 0
+2022/10/06-01:43:57.471055 7fcf444f3d80 	kLZ4HCCompression supported: 0
+2022/10/06-01:43:57.471056 7fcf444f3d80 	kLZ4Compression supported: 0
+2022/10/06-01:43:57.471056 7fcf444f3d80 	kBZip2Compression supported: 0
+2022/10/06-01:43:57.471057 7fcf444f3d80 	kZlibCompression supported: 0
+2022/10/06-01:43:57.471057 7fcf444f3d80 	kSnappyCompression supported: 1
+2022/10/06-01:43:57.471058 7fcf444f3d80 Fast CRC32 supported: Not supported on x86
+2022/10/06-01:43:57.471117 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/version_set.cc:3085] Recovering from manifest file: MANIFEST-000001
+2022/10/06-01:43:57.471141 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/column_family.cc:475] --------------- Options for column family [default]:
+2022/10/06-01:43:57.471141 7fcf444f3d80               Options.comparator: leveldb.BytewiseComparator
+2022/10/06-01:43:57.471142 7fcf444f3d80           Options.merge_operator: None
+2022/10/06-01:43:57.471142 7fcf444f3d80        Options.compaction_filter: None
+2022/10/06-01:43:57.471143 7fcf444f3d80        Options.compaction_filter_factory: None
+2022/10/06-01:43:57.471143 7fcf444f3d80         Options.memtable_factory: SkipListFactory
+2022/10/06-01:43:57.471148 7fcf444f3d80            Options.table_factory: BlockBasedTable
+2022/10/06-01:43:57.471156 7fcf444f3d80            table_factory options:   flush_block_policy_factory: FlushBlockBySizePolicyFactory (0x55d525e38c10)
+  cache_index_and_filter_blocks: 0
+  cache_index_and_filter_blocks_with_high_priority: 0
+  pin_l0_filter_and_index_blocks_in_cache: 0
+  index_type: 0
+  hash_index_allow_collision: 1
+  checksum: 1
+  no_block_cache: 0
+  block_cache: 0x55d52648ea90
+  block_cache_name: LRUCache
+  block_cache_options:
+    capacity : 8388608
+    num_shard_bits : 4
+    strict_capacity_limit : 0
+    high_pri_pool_ratio: 0.000
+  block_cache_compressed: (nil)
+  persistent_cache: (nil)
+  block_size: 4096
+  block_size_deviation: 10
+  block_restart_interval: 16
+  index_block_restart_interval: 1
+  metadata_block_size: 4096
+  partition_filters: 0
+  use_delta_encoding: 1
+  filter_policy: nullptr
+  whole_key_filtering: 1
+  verify_compression: 0
+  read_amp_bytes_per_bit: 0
+  format_version: 2
+  enable_index_compression: 1
+  block_align: 0
+2022/10/06-01:43:57.471157 7fcf444f3d80        Options.write_buffer_size: 67108864
+2022/10/06-01:43:57.471157 7fcf444f3d80  Options.max_write_buffer_number: 2
+2022/10/06-01:43:57.471158 7fcf444f3d80          Options.compression: Snappy
+2022/10/06-01:43:57.471158 7fcf444f3d80                  Options.bottommost_compression: Disabled
+2022/10/06-01:43:57.471159 7fcf444f3d80       Options.prefix_extractor: nullptr
+2022/10/06-01:43:57.471159 7fcf444f3d80   Options.memtable_insert_with_hint_prefix_extractor: nullptr
+2022/10/06-01:43:57.471159 7fcf444f3d80             Options.num_levels: 7
+2022/10/06-01:43:57.471160 7fcf444f3d80        Options.min_write_buffer_number_to_merge: 1
+2022/10/06-01:43:57.471160 7fcf444f3d80     Options.max_write_buffer_number_to_maintain: 0
+2022/10/06-01:43:57.471161 7fcf444f3d80            Options.compression_opts.window_bits: -14
+2022/10/06-01:43:57.471161 7fcf444f3d80                  Options.compression_opts.level: -1
+2022/10/06-01:43:57.471162 7fcf444f3d80               Options.compression_opts.strategy: 0
+2022/10/06-01:43:57.471162 7fcf444f3d80         Options.compression_opts.max_dict_bytes: 0
+2022/10/06-01:43:57.471163 7fcf444f3d80         Options.compression_opts.zstd_max_train_bytes: 0
+2022/10/06-01:43:57.471163 7fcf444f3d80      Options.level0_file_num_compaction_trigger: 4
+2022/10/06-01:43:57.471164 7fcf444f3d80          Options.level0_slowdown_writes_trigger: 20
+2022/10/06-01:43:57.471164 7fcf444f3d80              Options.level0_stop_writes_trigger: 36
+2022/10/06-01:43:57.471165 7fcf444f3d80                   Options.target_file_size_base: 67108864
+2022/10/06-01:43:57.471165 7fcf444f3d80             Options.target_file_size_multiplier: 1
+2022/10/06-01:43:57.471166 7fcf444f3d80                Options.max_bytes_for_level_base: 268435456
+2022/10/06-01:43:57.471166 7fcf444f3d80 Options.level_compaction_dynamic_level_bytes: 0
+2022/10/06-01:43:57.471167 7fcf444f3d80          Options.max_bytes_for_level_multiplier: 10.000000
+2022/10/06-01:43:57.471168 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[0]: 1
+2022/10/06-01:43:57.471168 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[1]: 1
+2022/10/06-01:43:57.471169 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[2]: 1
+2022/10/06-01:43:57.471169 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[3]: 1
+2022/10/06-01:43:57.471170 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[4]: 1
+2022/10/06-01:43:57.471170 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[5]: 1
+2022/10/06-01:43:57.471170 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[6]: 1
+2022/10/06-01:43:57.471171 7fcf444f3d80       Options.max_sequential_skip_in_iterations: 8
+2022/10/06-01:43:57.471171 7fcf444f3d80                    Options.max_compaction_bytes: 1677721600
+2022/10/06-01:43:57.471172 7fcf444f3d80                        Options.arena_block_size: 8388608
+2022/10/06-01:43:57.471172 7fcf444f3d80   Options.soft_pending_compaction_bytes_limit: 68719476736
+2022/10/06-01:43:57.471175 7fcf444f3d80   Options.hard_pending_compaction_bytes_limit: 274877906944
+2022/10/06-01:43:57.471176 7fcf444f3d80       Options.rate_limit_delay_max_milliseconds: 100
+2022/10/06-01:43:57.471176 7fcf444f3d80                Options.disable_auto_compactions: 0
+2022/10/06-01:43:57.471177 7fcf444f3d80                        Options.compaction_style: kCompactionStyleLevel
+2022/10/06-01:43:57.471178 7fcf444f3d80                          Options.compaction_pri: kByCompensatedSize
+2022/10/06-01:43:57.471178 7fcf444f3d80 Options.compaction_options_universal.size_ratio: 1
+2022/10/06-01:43:57.471178 7fcf444f3d80 Options.compaction_options_universal.min_merge_width: 2
+2022/10/06-01:43:57.471179 7fcf444f3d80 Options.compaction_options_universal.max_merge_width: 4294967295
+2022/10/06-01:43:57.471179 7fcf444f3d80 Options.compaction_options_universal.max_size_amplification_percent: 200
+2022/10/06-01:43:57.471180 7fcf444f3d80 Options.compaction_options_universal.compression_size_percent: -1
+2022/10/06-01:43:57.471180 7fcf444f3d80 Options.compaction_options_universal.stop_style: kCompactionStopStyleTotalSize
+2022/10/06-01:43:57.471181 7fcf444f3d80 Options.compaction_options_fifo.max_table_files_size: 1073741824
+2022/10/06-01:43:57.471181 7fcf444f3d80 Options.compaction_options_fifo.allow_compaction: 0
+2022/10/06-01:43:57.471182 7fcf444f3d80 Options.compaction_options_fifo.ttl: 0
+2022/10/06-01:43:57.471182 7fcf444f3d80                   Options.table_properties_collectors: 
+2022/10/06-01:43:57.471183 7fcf444f3d80                   Options.inplace_update_support: 0
+2022/10/06-01:43:57.471183 7fcf444f3d80                 Options.inplace_update_num_locks: 10000
+2022/10/06-01:43:57.471184 7fcf444f3d80               Options.memtable_prefix_bloom_size_ratio: 0.000000
+2022/10/06-01:43:57.471184 7fcf444f3d80   Options.memtable_huge_page_size: 0
+2022/10/06-01:43:57.471185 7fcf444f3d80                           Options.bloom_locality: 0
+2022/10/06-01:43:57.471185 7fcf444f3d80                    Options.max_successive_merges: 0
+2022/10/06-01:43:57.471186 7fcf444f3d80                Options.optimize_filters_for_hits: 0
+2022/10/06-01:43:57.471186 7fcf444f3d80                Options.paranoid_file_checks: 0
+2022/10/06-01:43:57.471187 7fcf444f3d80                Options.force_consistency_checks: 0
+2022/10/06-01:43:57.471187 7fcf444f3d80                Options.report_bg_io_stats: 0
+2022/10/06-01:43:57.471188 7fcf444f3d80                               Options.ttl: 0
+2022/10/06-01:43:57.471196 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/version_set.cc:3361] Recovered from manifest file:/home/srisht/project_repo/lmpt/openethlmpt/parity0/chains/PoA/db/b2d1e34afe8c784c/overlayrecent/db/MANIFEST-000001 succeeded,manifest_file_number is 1, next_file_number is 3, last_sequence is 0, log_number is 0,prev_log_number is 0,max_column_family is 0,min_log_number_to_keep is 0
+2022/10/06-01:43:57.471197 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/version_set.cc:3369] Column family [default] (ID 0), log number is 0
+2022/10/06-01:43:57.471226 7fcf444f3d80 EVENT_LOG_v1 {"time_micros": 1665035037471222, "job": 1, "event": "recovery_started", "log_files": [3]}
+2022/10/06-01:43:57.471228 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_open.cc:551] Recovering log #3 mode 2
+2022/10/06-01:43:57.471255 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/version_set.cc:2847] Creating manifest 5
+2022/10/06-01:43:57.538574 7fcf444f3d80 EVENT_LOG_v1 {"time_micros": 1665035037538570, "job": 1, "event": "recovery_finished"}
+2022/10/06-01:43:57.538822 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_files.cc:477] [JOB 2] Delete info log file /home/srisht/project_repo/lmpt/openethlmpt/parity0/chains/PoA/db/b2d1e34afe8c784c/overlayrecent/db//LOG.old.1665035037470907
+2022/10/06-01:43:57.606864 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_open.cc:1219] DB pointer 0x55d52609b020
+2022/10/06-01:43:57.640346 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/column_family.cc:475] --------------- Options for column family [col0]:
+2022/10/06-01:43:57.640358 7fcf444f3d80               Options.comparator: leveldb.BytewiseComparator
+2022/10/06-01:43:57.640360 7fcf444f3d80           Options.merge_operator: None
+2022/10/06-01:43:57.640362 7fcf444f3d80        Options.compaction_filter: None
+2022/10/06-01:43:57.640363 7fcf444f3d80        Options.compaction_filter_factory: None
+2022/10/06-01:43:57.640365 7fcf444f3d80         Options.memtable_factory: SkipListFactory
+2022/10/06-01:43:57.640366 7fcf444f3d80            Options.table_factory: BlockBasedTable
+2022/10/06-01:43:57.640395 7fcf444f3d80            table_factory options:   flush_block_policy_factory: FlushBlockBySizePolicyFactory (0x55d52609af30)
+  cache_index_and_filter_blocks: 1
+  cache_index_and_filter_blocks_with_high_priority: 0
+  pin_l0_filter_and_index_blocks_in_cache: 1
+  index_type: 0
+  hash_index_allow_collision: 1
+  checksum: 1
+  no_block_cache: 0
+  block_cache: 0x55d5260c2e90
+  block_cache_name: LRUCache
+  block_cache_options:
+    capacity : 44739242
+    num_shard_bits : 6
+    strict_capacity_limit : 0
+    high_pri_pool_ratio: 0.000
+  block_cache_compressed: (nil)
+  persistent_cache: (nil)
+  block_size: 16384
+  block_size_deviation: 10
+  block_restart_interval: 16
+  index_block_restart_interval: 1
+  metadata_block_size: 4096
+  partition_filters: 0
+  use_delta_encoding: 1
+  filter_policy: nullptr
+  whole_key_filtering: 1
+  verify_compression: 0
+  read_amp_bytes_per_bit: 0
+  format_version: 2
+  enable_index_compression: 1
+  block_align: 0
+2022/10/06-01:43:57.640397 7fcf444f3d80        Options.write_buffer_size: 4793490
+2022/10/06-01:43:57.640398 7fcf444f3d80  Options.max_write_buffer_number: 6
+2022/10/06-01:43:57.640400 7fcf444f3d80          Options.compression: Snappy
+2022/10/06-01:43:57.640401 7fcf444f3d80                  Options.bottommost_compression: Disabled
+2022/10/06-01:43:57.640403 7fcf444f3d80       Options.prefix_extractor: nullptr
+2022/10/06-01:43:57.640404 7fcf444f3d80   Options.memtable_insert_with_hint_prefix_extractor: nullptr
+2022/10/06-01:43:57.640405 7fcf444f3d80             Options.num_levels: 7
+2022/10/06-01:43:57.640406 7fcf444f3d80        Options.min_write_buffer_number_to_merge: 2
+2022/10/06-01:43:57.640408 7fcf444f3d80     Options.max_write_buffer_number_to_maintain: 0
+2022/10/06-01:43:57.640409 7fcf444f3d80            Options.compression_opts.window_bits: -14
+2022/10/06-01:43:57.640410 7fcf444f3d80                  Options.compression_opts.level: -1
+2022/10/06-01:43:57.640412 7fcf444f3d80               Options.compression_opts.strategy: 0
+2022/10/06-01:43:57.640413 7fcf444f3d80         Options.compression_opts.max_dict_bytes: 0
+2022/10/06-01:43:57.640414 7fcf444f3d80         Options.compression_opts.zstd_max_train_bytes: 0
+2022/10/06-01:43:57.640415 7fcf444f3d80      Options.level0_file_num_compaction_trigger: 2
+2022/10/06-01:43:57.640416 7fcf444f3d80          Options.level0_slowdown_writes_trigger: 20
+2022/10/06-01:43:57.640418 7fcf444f3d80              Options.level0_stop_writes_trigger: 36
+2022/10/06-01:43:57.640419 7fcf444f3d80                   Options.target_file_size_base: 67108864
+2022/10/06-01:43:57.640420 7fcf444f3d80             Options.target_file_size_multiplier: 1
+2022/10/06-01:43:57.640422 7fcf444f3d80                Options.max_bytes_for_level_base: 19173961
+2022/10/06-01:43:57.640423 7fcf444f3d80 Options.level_compaction_dynamic_level_bytes: 1
+2022/10/06-01:43:57.640424 7fcf444f3d80          Options.max_bytes_for_level_multiplier: 10.000000
+2022/10/06-01:43:57.640427 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[0]: 1
+2022/10/06-01:43:57.640428 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[1]: 1
+2022/10/06-01:43:57.640430 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[2]: 1
+2022/10/06-01:43:57.640431 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[3]: 1
+2022/10/06-01:43:57.640432 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[4]: 1
+2022/10/06-01:43:57.640484 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[5]: 1
+2022/10/06-01:43:57.640486 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[6]: 1
+2022/10/06-01:43:57.640488 7fcf444f3d80       Options.max_sequential_skip_in_iterations: 8
+2022/10/06-01:43:57.640489 7fcf444f3d80                    Options.max_compaction_bytes: 1677721600
+2022/10/06-01:43:57.640490 7fcf444f3d80                        Options.arena_block_size: 602112
+2022/10/06-01:43:57.640492 7fcf444f3d80   Options.soft_pending_compaction_bytes_limit: 68719476736
+2022/10/06-01:43:57.640493 7fcf444f3d80   Options.hard_pending_compaction_bytes_limit: 274877906944
+2022/10/06-01:43:57.640494 7fcf444f3d80       Options.rate_limit_delay_max_milliseconds: 100
+2022/10/06-01:43:57.640496 7fcf444f3d80                Options.disable_auto_compactions: 0
+2022/10/06-01:43:57.640498 7fcf444f3d80                        Options.compaction_style: kCompactionStyleLevel
+2022/10/06-01:43:57.640500 7fcf444f3d80                          Options.compaction_pri: kByCompensatedSize
+2022/10/06-01:43:57.640501 7fcf444f3d80 Options.compaction_options_universal.size_ratio: 1
+2022/10/06-01:43:57.640502 7fcf444f3d80 Options.compaction_options_universal.min_merge_width: 2
+2022/10/06-01:43:57.640503 7fcf444f3d80 Options.compaction_options_universal.max_merge_width: 4294967295
+2022/10/06-01:43:57.640505 7fcf444f3d80 Options.compaction_options_universal.max_size_amplification_percent: 200
+2022/10/06-01:43:57.640506 7fcf444f3d80 Options.compaction_options_universal.compression_size_percent: -1
+2022/10/06-01:43:57.640508 7fcf444f3d80 Options.compaction_options_universal.stop_style: kCompactionStopStyleTotalSize
+2022/10/06-01:43:57.640509 7fcf444f3d80 Options.compaction_options_fifo.max_table_files_size: 1073741824
+2022/10/06-01:43:57.640511 7fcf444f3d80 Options.compaction_options_fifo.allow_compaction: 0
+2022/10/06-01:43:57.640512 7fcf444f3d80 Options.compaction_options_fifo.ttl: 0
+2022/10/06-01:43:57.640513 7fcf444f3d80                   Options.table_properties_collectors: 
+2022/10/06-01:43:57.640514 7fcf444f3d80                   Options.inplace_update_support: 0
+2022/10/06-01:43:57.640516 7fcf444f3d80                 Options.inplace_update_num_locks: 10000
+2022/10/06-01:43:57.640517 7fcf444f3d80               Options.memtable_prefix_bloom_size_ratio: 0.000000
+2022/10/06-01:43:57.640519 7fcf444f3d80   Options.memtable_huge_page_size: 0
+2022/10/06-01:43:57.640520 7fcf444f3d80                           Options.bloom_locality: 0
+2022/10/06-01:43:57.640522 7fcf444f3d80                    Options.max_successive_merges: 0
+2022/10/06-01:43:57.640523 7fcf444f3d80                Options.optimize_filters_for_hits: 0
+2022/10/06-01:43:57.640524 7fcf444f3d80                Options.paranoid_file_checks: 0
+2022/10/06-01:43:57.640525 7fcf444f3d80                Options.force_consistency_checks: 0
+2022/10/06-01:43:57.640526 7fcf444f3d80                Options.report_bg_io_stats: 0
+2022/10/06-01:43:57.640528 7fcf444f3d80                               Options.ttl: 0
+2022/10/06-01:43:57.640574 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:1396] Created column family [col0] (ID 1)
+2022/10/06-01:43:57.708238 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/column_family.cc:475] --------------- Options for column family [col1]:
+2022/10/06-01:43:57.708245 7fcf444f3d80               Options.comparator: leveldb.BytewiseComparator
+2022/10/06-01:43:57.708246 7fcf444f3d80           Options.merge_operator: None
+2022/10/06-01:43:57.708247 7fcf444f3d80        Options.compaction_filter: None
+2022/10/06-01:43:57.708248 7fcf444f3d80        Options.compaction_filter_factory: None
+2022/10/06-01:43:57.708248 7fcf444f3d80         Options.memtable_factory: SkipListFactory
+2022/10/06-01:43:57.708249 7fcf444f3d80            Options.table_factory: BlockBasedTable
+2022/10/06-01:43:57.708263 7fcf444f3d80            table_factory options:   flush_block_policy_factory: FlushBlockBySizePolicyFactory (0x55d52600f5a0)
+  cache_index_and_filter_blocks: 1
+  cache_index_and_filter_blocks_with_high_priority: 0
+  pin_l0_filter_and_index_blocks_in_cache: 1
+  index_type: 0
+  hash_index_allow_collision: 1
+  checksum: 1
+  no_block_cache: 0
+  block_cache: 0x55d5260c2e90
+  block_cache_name: LRUCache
+  block_cache_options:
+    capacity : 44739242
+    num_shard_bits : 6
+    strict_capacity_limit : 0
+    high_pri_pool_ratio: 0.000
+  block_cache_compressed: (nil)
+  persistent_cache: (nil)
+  block_size: 16384
+  block_size_deviation: 10
+  block_restart_interval: 16
+  index_block_restart_interval: 1
+  metadata_block_size: 4096
+  partition_filters: 0
+  use_delta_encoding: 1
+  filter_policy: nullptr
+  whole_key_filtering: 1
+  verify_compression: 0
+  read_amp_bytes_per_bit: 0
+  format_version: 2
+  enable_index_compression: 1
+  block_align: 0
+2022/10/06-01:43:57.708263 7fcf444f3d80        Options.write_buffer_size: 4793490
+2022/10/06-01:43:57.708264 7fcf444f3d80  Options.max_write_buffer_number: 6
+2022/10/06-01:43:57.708265 7fcf444f3d80          Options.compression: Snappy
+2022/10/06-01:43:57.708265 7fcf444f3d80                  Options.bottommost_compression: Disabled
+2022/10/06-01:43:57.708266 7fcf444f3d80       Options.prefix_extractor: nullptr
+2022/10/06-01:43:57.708266 7fcf444f3d80   Options.memtable_insert_with_hint_prefix_extractor: nullptr
+2022/10/06-01:43:57.708267 7fcf444f3d80             Options.num_levels: 7
+2022/10/06-01:43:57.708267 7fcf444f3d80        Options.min_write_buffer_number_to_merge: 2
+2022/10/06-01:43:57.708268 7fcf444f3d80     Options.max_write_buffer_number_to_maintain: 0
+2022/10/06-01:43:57.708268 7fcf444f3d80            Options.compression_opts.window_bits: -14
+2022/10/06-01:43:57.708269 7fcf444f3d80                  Options.compression_opts.level: -1
+2022/10/06-01:43:57.708269 7fcf444f3d80               Options.compression_opts.strategy: 0
+2022/10/06-01:43:57.708270 7fcf444f3d80         Options.compression_opts.max_dict_bytes: 0
+2022/10/06-01:43:57.708270 7fcf444f3d80         Options.compression_opts.zstd_max_train_bytes: 0
+2022/10/06-01:43:57.708271 7fcf444f3d80      Options.level0_file_num_compaction_trigger: 2
+2022/10/06-01:43:57.708271 7fcf444f3d80          Options.level0_slowdown_writes_trigger: 20
+2022/10/06-01:43:57.708272 7fcf444f3d80              Options.level0_stop_writes_trigger: 36
+2022/10/06-01:43:57.708272 7fcf444f3d80                   Options.target_file_size_base: 67108864
+2022/10/06-01:43:57.708273 7fcf444f3d80             Options.target_file_size_multiplier: 1
+2022/10/06-01:43:57.708273 7fcf444f3d80                Options.max_bytes_for_level_base: 19173961
+2022/10/06-01:43:57.708274 7fcf444f3d80 Options.level_compaction_dynamic_level_bytes: 1
+2022/10/06-01:43:57.708274 7fcf444f3d80          Options.max_bytes_for_level_multiplier: 10.000000
+2022/10/06-01:43:57.708275 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[0]: 1
+2022/10/06-01:43:57.708276 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[1]: 1
+2022/10/06-01:43:57.708277 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[2]: 1
+2022/10/06-01:43:57.708277 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[3]: 1
+2022/10/06-01:43:57.708278 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[4]: 1
+2022/10/06-01:43:57.708290 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[5]: 1
+2022/10/06-01:43:57.708291 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[6]: 1
+2022/10/06-01:43:57.708291 7fcf444f3d80       Options.max_sequential_skip_in_iterations: 8
+2022/10/06-01:43:57.708292 7fcf444f3d80                    Options.max_compaction_bytes: 1677721600
+2022/10/06-01:43:57.708292 7fcf444f3d80                        Options.arena_block_size: 602112
+2022/10/06-01:43:57.708293 7fcf444f3d80   Options.soft_pending_compaction_bytes_limit: 68719476736
+2022/10/06-01:43:57.708293 7fcf444f3d80   Options.hard_pending_compaction_bytes_limit: 274877906944
+2022/10/06-01:43:57.708294 7fcf444f3d80       Options.rate_limit_delay_max_milliseconds: 100
+2022/10/06-01:43:57.708294 7fcf444f3d80                Options.disable_auto_compactions: 0
+2022/10/06-01:43:57.708295 7fcf444f3d80                        Options.compaction_style: kCompactionStyleLevel
+2022/10/06-01:43:57.708296 7fcf444f3d80                          Options.compaction_pri: kByCompensatedSize
+2022/10/06-01:43:57.708297 7fcf444f3d80 Options.compaction_options_universal.size_ratio: 1
+2022/10/06-01:43:57.708297 7fcf444f3d80 Options.compaction_options_universal.min_merge_width: 2
+2022/10/06-01:43:57.708298 7fcf444f3d80 Options.compaction_options_universal.max_merge_width: 4294967295
+2022/10/06-01:43:57.708298 7fcf444f3d80 Options.compaction_options_universal.max_size_amplification_percent: 200
+2022/10/06-01:43:57.708299 7fcf444f3d80 Options.compaction_options_universal.compression_size_percent: -1
+2022/10/06-01:43:57.708300 7fcf444f3d80 Options.compaction_options_universal.stop_style: kCompactionStopStyleTotalSize
+2022/10/06-01:43:57.708300 7fcf444f3d80 Options.compaction_options_fifo.max_table_files_size: 1073741824
+2022/10/06-01:43:57.708300 7fcf444f3d80 Options.compaction_options_fifo.allow_compaction: 0
+2022/10/06-01:43:57.708301 7fcf444f3d80 Options.compaction_options_fifo.ttl: 0
+2022/10/06-01:43:57.708301 7fcf444f3d80                   Options.table_properties_collectors: 
+2022/10/06-01:43:57.708302 7fcf444f3d80                   Options.inplace_update_support: 0
+2022/10/06-01:43:57.708302 7fcf444f3d80                 Options.inplace_update_num_locks: 10000
+2022/10/06-01:43:57.708303 7fcf444f3d80               Options.memtable_prefix_bloom_size_ratio: 0.000000
+2022/10/06-01:43:57.708304 7fcf444f3d80   Options.memtable_huge_page_size: 0
+2022/10/06-01:43:57.708304 7fcf444f3d80                           Options.bloom_locality: 0
+2022/10/06-01:43:57.708305 7fcf444f3d80                    Options.max_successive_merges: 0
+2022/10/06-01:43:57.708305 7fcf444f3d80                Options.optimize_filters_for_hits: 0
+2022/10/06-01:43:57.708306 7fcf444f3d80                Options.paranoid_file_checks: 0
+2022/10/06-01:43:57.708306 7fcf444f3d80                Options.force_consistency_checks: 0
+2022/10/06-01:43:57.708306 7fcf444f3d80                Options.report_bg_io_stats: 0
+2022/10/06-01:43:57.708307 7fcf444f3d80                               Options.ttl: 0
+2022/10/06-01:43:57.708334 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:1396] Created column family [col1] (ID 2)
+2022/10/06-01:43:57.776202 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/column_family.cc:475] --------------- Options for column family [col2]:
+2022/10/06-01:43:57.776211 7fcf444f3d80               Options.comparator: leveldb.BytewiseComparator
+2022/10/06-01:43:57.776212 7fcf444f3d80           Options.merge_operator: None
+2022/10/06-01:43:57.776213 7fcf444f3d80        Options.compaction_filter: None
+2022/10/06-01:43:57.776214 7fcf444f3d80        Options.compaction_filter_factory: None
+2022/10/06-01:43:57.776215 7fcf444f3d80         Options.memtable_factory: SkipListFactory
+2022/10/06-01:43:57.776216 7fcf444f3d80            Options.table_factory: BlockBasedTable
+2022/10/06-01:43:57.776236 7fcf444f3d80            table_factory options:   flush_block_policy_factory: FlushBlockBySizePolicyFactory (0x55d52609ea70)
+  cache_index_and_filter_blocks: 1
+  cache_index_and_filter_blocks_with_high_priority: 0
+  pin_l0_filter_and_index_blocks_in_cache: 1
+  index_type: 0
+  hash_index_allow_collision: 1
+  checksum: 1
+  no_block_cache: 0
+  block_cache: 0x55d5260c2e90
+  block_cache_name: LRUCache
+  block_cache_options:
+    capacity : 44739242
+    num_shard_bits : 6
+    strict_capacity_limit : 0
+    high_pri_pool_ratio: 0.000
+  block_cache_compressed: (nil)
+  persistent_cache: (nil)
+  block_size: 16384
+  block_size_deviation: 10
+  block_restart_interval: 16
+  index_block_restart_interval: 1
+  metadata_block_size: 4096
+  partition_filters: 0
+  use_delta_encoding: 1
+  filter_policy: nullptr
+  whole_key_filtering: 1
+  verify_compression: 0
+  read_amp_bytes_per_bit: 0
+  format_version: 2
+  enable_index_compression: 1
+  block_align: 0
+2022/10/06-01:43:57.776238 7fcf444f3d80        Options.write_buffer_size: 4793490
+2022/10/06-01:43:57.776239 7fcf444f3d80  Options.max_write_buffer_number: 6
+2022/10/06-01:43:57.776240 7fcf444f3d80          Options.compression: Snappy
+2022/10/06-01:43:57.776241 7fcf444f3d80                  Options.bottommost_compression: Disabled
+2022/10/06-01:43:57.776242 7fcf444f3d80       Options.prefix_extractor: nullptr
+2022/10/06-01:43:57.776243 7fcf444f3d80   Options.memtable_insert_with_hint_prefix_extractor: nullptr
+2022/10/06-01:43:57.776243 7fcf444f3d80             Options.num_levels: 7
+2022/10/06-01:43:57.776244 7fcf444f3d80        Options.min_write_buffer_number_to_merge: 2
+2022/10/06-01:43:57.776245 7fcf444f3d80     Options.max_write_buffer_number_to_maintain: 0
+2022/10/06-01:43:57.776246 7fcf444f3d80            Options.compression_opts.window_bits: -14
+2022/10/06-01:43:57.776247 7fcf444f3d80                  Options.compression_opts.level: -1
+2022/10/06-01:43:57.776248 7fcf444f3d80               Options.compression_opts.strategy: 0
+2022/10/06-01:43:57.776248 7fcf444f3d80         Options.compression_opts.max_dict_bytes: 0
+2022/10/06-01:43:57.776249 7fcf444f3d80         Options.compression_opts.zstd_max_train_bytes: 0
+2022/10/06-01:43:57.776250 7fcf444f3d80      Options.level0_file_num_compaction_trigger: 2
+2022/10/06-01:43:57.776251 7fcf444f3d80          Options.level0_slowdown_writes_trigger: 20
+2022/10/06-01:43:57.776252 7fcf444f3d80              Options.level0_stop_writes_trigger: 36
+2022/10/06-01:43:57.776253 7fcf444f3d80                   Options.target_file_size_base: 67108864
+2022/10/06-01:43:57.776253 7fcf444f3d80             Options.target_file_size_multiplier: 1
+2022/10/06-01:43:57.776254 7fcf444f3d80                Options.max_bytes_for_level_base: 19173961
+2022/10/06-01:43:57.776255 7fcf444f3d80 Options.level_compaction_dynamic_level_bytes: 1
+2022/10/06-01:43:57.776256 7fcf444f3d80          Options.max_bytes_for_level_multiplier: 10.000000
+2022/10/06-01:43:57.776258 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[0]: 1
+2022/10/06-01:43:57.776259 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[1]: 1
+2022/10/06-01:43:57.776260 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[2]: 1
+2022/10/06-01:43:57.776261 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[3]: 1
+2022/10/06-01:43:57.776261 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[4]: 1
+2022/10/06-01:43:57.776269 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[5]: 1
+2022/10/06-01:43:57.776270 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[6]: 1
+2022/10/06-01:43:57.776271 7fcf444f3d80       Options.max_sequential_skip_in_iterations: 8
+2022/10/06-01:43:57.776272 7fcf444f3d80                    Options.max_compaction_bytes: 1677721600
+2022/10/06-01:43:57.776273 7fcf444f3d80                        Options.arena_block_size: 602112
+2022/10/06-01:43:57.776274 7fcf444f3d80   Options.soft_pending_compaction_bytes_limit: 68719476736
+2022/10/06-01:43:57.776275 7fcf444f3d80   Options.hard_pending_compaction_bytes_limit: 274877906944
+2022/10/06-01:43:57.776276 7fcf444f3d80       Options.rate_limit_delay_max_milliseconds: 100
+2022/10/06-01:43:57.776276 7fcf444f3d80                Options.disable_auto_compactions: 0
+2022/10/06-01:43:57.776278 7fcf444f3d80                        Options.compaction_style: kCompactionStyleLevel
+2022/10/06-01:43:57.776280 7fcf444f3d80                          Options.compaction_pri: kByCompensatedSize
+2022/10/06-01:43:57.776281 7fcf444f3d80 Options.compaction_options_universal.size_ratio: 1
+2022/10/06-01:43:57.776282 7fcf444f3d80 Options.compaction_options_universal.min_merge_width: 2
+2022/10/06-01:43:57.776283 7fcf444f3d80 Options.compaction_options_universal.max_merge_width: 4294967295
+2022/10/06-01:43:57.776283 7fcf444f3d80 Options.compaction_options_universal.max_size_amplification_percent: 200
+2022/10/06-01:43:57.776284 7fcf444f3d80 Options.compaction_options_universal.compression_size_percent: -1
+2022/10/06-01:43:57.776286 7fcf444f3d80 Options.compaction_options_universal.stop_style: kCompactionStopStyleTotalSize
+2022/10/06-01:43:57.776286 7fcf444f3d80 Options.compaction_options_fifo.max_table_files_size: 1073741824
+2022/10/06-01:43:57.776287 7fcf444f3d80 Options.compaction_options_fifo.allow_compaction: 0
+2022/10/06-01:43:57.776288 7fcf444f3d80 Options.compaction_options_fifo.ttl: 0
+2022/10/06-01:43:57.776289 7fcf444f3d80                   Options.table_properties_collectors: 
+2022/10/06-01:43:57.776290 7fcf444f3d80                   Options.inplace_update_support: 0
+2022/10/06-01:43:57.776291 7fcf444f3d80                 Options.inplace_update_num_locks: 10000
+2022/10/06-01:43:57.776291 7fcf444f3d80               Options.memtable_prefix_bloom_size_ratio: 0.000000
+2022/10/06-01:43:57.776293 7fcf444f3d80   Options.memtable_huge_page_size: 0
+2022/10/06-01:43:57.776293 7fcf444f3d80                           Options.bloom_locality: 0
+2022/10/06-01:43:57.776294 7fcf444f3d80                    Options.max_successive_merges: 0
+2022/10/06-01:43:57.776295 7fcf444f3d80                Options.optimize_filters_for_hits: 0
+2022/10/06-01:43:57.776296 7fcf444f3d80                Options.paranoid_file_checks: 0
+2022/10/06-01:43:57.776296 7fcf444f3d80                Options.force_consistency_checks: 0
+2022/10/06-01:43:57.776297 7fcf444f3d80                Options.report_bg_io_stats: 0
+2022/10/06-01:43:57.776298 7fcf444f3d80                               Options.ttl: 0
+2022/10/06-01:43:57.776325 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:1396] Created column family [col2] (ID 3)
+2022/10/06-01:43:57.844168 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/column_family.cc:475] --------------- Options for column family [col3]:
+2022/10/06-01:43:57.844179 7fcf444f3d80               Options.comparator: leveldb.BytewiseComparator
+2022/10/06-01:43:57.844182 7fcf444f3d80           Options.merge_operator: None
+2022/10/06-01:43:57.844183 7fcf444f3d80        Options.compaction_filter: None
+2022/10/06-01:43:57.844185 7fcf444f3d80        Options.compaction_filter_factory: None
+2022/10/06-01:43:57.844186 7fcf444f3d80         Options.memtable_factory: SkipListFactory
+2022/10/06-01:43:57.844187 7fcf444f3d80            Options.table_factory: BlockBasedTable
+2022/10/06-01:43:57.844217 7fcf444f3d80            table_factory options:   flush_block_policy_factory: FlushBlockBySizePolicyFactory (0x55d52600faf0)
+  cache_index_and_filter_blocks: 1
+  cache_index_and_filter_blocks_with_high_priority: 0
+  pin_l0_filter_and_index_blocks_in_cache: 1
+  index_type: 0
+  hash_index_allow_collision: 1
+  checksum: 1
+  no_block_cache: 0
+  block_cache: 0x55d5260c2e90
+  block_cache_name: LRUCache
+  block_cache_options:
+    capacity : 44739242
+    num_shard_bits : 6
+    strict_capacity_limit : 0
+    high_pri_pool_ratio: 0.000
+  block_cache_compressed: (nil)
+  persistent_cache: (nil)
+  block_size: 16384
+  block_size_deviation: 10
+  block_restart_interval: 16
+  index_block_restart_interval: 1
+  metadata_block_size: 4096
+  partition_filters: 0
+  use_delta_encoding: 1
+  filter_policy: nullptr
+  whole_key_filtering: 1
+  verify_compression: 0
+  read_amp_bytes_per_bit: 0
+  format_version: 2
+  enable_index_compression: 1
+  block_align: 0
+2022/10/06-01:43:57.844219 7fcf444f3d80        Options.write_buffer_size: 4793490
+2022/10/06-01:43:57.844220 7fcf444f3d80  Options.max_write_buffer_number: 6
+2022/10/06-01:43:57.844222 7fcf444f3d80          Options.compression: Snappy
+2022/10/06-01:43:57.844223 7fcf444f3d80                  Options.bottommost_compression: Disabled
+2022/10/06-01:43:57.844225 7fcf444f3d80       Options.prefix_extractor: nullptr
+2022/10/06-01:43:57.844226 7fcf444f3d80   Options.memtable_insert_with_hint_prefix_extractor: nullptr
+2022/10/06-01:43:57.844227 7fcf444f3d80             Options.num_levels: 7
+2022/10/06-01:43:57.844229 7fcf444f3d80        Options.min_write_buffer_number_to_merge: 2
+2022/10/06-01:43:57.844230 7fcf444f3d80     Options.max_write_buffer_number_to_maintain: 0
+2022/10/06-01:43:57.844231 7fcf444f3d80            Options.compression_opts.window_bits: -14
+2022/10/06-01:43:57.844232 7fcf444f3d80                  Options.compression_opts.level: -1
+2022/10/06-01:43:57.844234 7fcf444f3d80               Options.compression_opts.strategy: 0
+2022/10/06-01:43:57.844235 7fcf444f3d80         Options.compression_opts.max_dict_bytes: 0
+2022/10/06-01:43:57.844236 7fcf444f3d80         Options.compression_opts.zstd_max_train_bytes: 0
+2022/10/06-01:43:57.844237 7fcf444f3d80      Options.level0_file_num_compaction_trigger: 2
+2022/10/06-01:43:57.844239 7fcf444f3d80          Options.level0_slowdown_writes_trigger: 20
+2022/10/06-01:43:57.844240 7fcf444f3d80              Options.level0_stop_writes_trigger: 36
+2022/10/06-01:43:57.844241 7fcf444f3d80                   Options.target_file_size_base: 67108864
+2022/10/06-01:43:57.844242 7fcf444f3d80             Options.target_file_size_multiplier: 1
+2022/10/06-01:43:57.844244 7fcf444f3d80                Options.max_bytes_for_level_base: 19173961
+2022/10/06-01:43:57.844245 7fcf444f3d80 Options.level_compaction_dynamic_level_bytes: 1
+2022/10/06-01:43:57.844246 7fcf444f3d80          Options.max_bytes_for_level_multiplier: 10.000000
+2022/10/06-01:43:57.844249 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[0]: 1
+2022/10/06-01:43:57.844251 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[1]: 1
+2022/10/06-01:43:57.844252 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[2]: 1
+2022/10/06-01:43:57.844253 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[3]: 1
+2022/10/06-01:43:57.844255 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[4]: 1
+2022/10/06-01:43:57.844267 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[5]: 1
+2022/10/06-01:43:57.844269 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[6]: 1
+2022/10/06-01:43:57.844270 7fcf444f3d80       Options.max_sequential_skip_in_iterations: 8
+2022/10/06-01:43:57.844271 7fcf444f3d80                    Options.max_compaction_bytes: 1677721600
+2022/10/06-01:43:57.844273 7fcf444f3d80                        Options.arena_block_size: 602112
+2022/10/06-01:43:57.844274 7fcf444f3d80   Options.soft_pending_compaction_bytes_limit: 68719476736
+2022/10/06-01:43:57.844276 7fcf444f3d80   Options.hard_pending_compaction_bytes_limit: 274877906944
+2022/10/06-01:43:57.844277 7fcf444f3d80       Options.rate_limit_delay_max_milliseconds: 100
+2022/10/06-01:43:57.844278 7fcf444f3d80                Options.disable_auto_compactions: 0
+2022/10/06-01:43:57.844280 7fcf444f3d80                        Options.compaction_style: kCompactionStyleLevel
+2022/10/06-01:43:57.844282 7fcf444f3d80                          Options.compaction_pri: kByCompensatedSize
+2022/10/06-01:43:57.844283 7fcf444f3d80 Options.compaction_options_universal.size_ratio: 1
+2022/10/06-01:43:57.844285 7fcf444f3d80 Options.compaction_options_universal.min_merge_width: 2
+2022/10/06-01:43:57.844286 7fcf444f3d80 Options.compaction_options_universal.max_merge_width: 4294967295
+2022/10/06-01:43:57.844287 7fcf444f3d80 Options.compaction_options_universal.max_size_amplification_percent: 200
+2022/10/06-01:43:57.844288 7fcf444f3d80 Options.compaction_options_universal.compression_size_percent: -1
+2022/10/06-01:43:57.844291 7fcf444f3d80 Options.compaction_options_universal.stop_style: kCompactionStopStyleTotalSize
+2022/10/06-01:43:57.844292 7fcf444f3d80 Options.compaction_options_fifo.max_table_files_size: 1073741824
+2022/10/06-01:43:57.844293 7fcf444f3d80 Options.compaction_options_fifo.allow_compaction: 0
+2022/10/06-01:43:57.844294 7fcf444f3d80 Options.compaction_options_fifo.ttl: 0
+2022/10/06-01:43:57.844295 7fcf444f3d80                   Options.table_properties_collectors: 
+2022/10/06-01:43:57.844297 7fcf444f3d80                   Options.inplace_update_support: 0
+2022/10/06-01:43:57.844298 7fcf444f3d80                 Options.inplace_update_num_locks: 10000
+2022/10/06-01:43:57.844299 7fcf444f3d80               Options.memtable_prefix_bloom_size_ratio: 0.000000
+2022/10/06-01:43:57.844301 7fcf444f3d80   Options.memtable_huge_page_size: 0
+2022/10/06-01:43:57.844302 7fcf444f3d80                           Options.bloom_locality: 0
+2022/10/06-01:43:57.844303 7fcf444f3d80                    Options.max_successive_merges: 0
+2022/10/06-01:43:57.844305 7fcf444f3d80                Options.optimize_filters_for_hits: 0
+2022/10/06-01:43:57.844306 7fcf444f3d80                Options.paranoid_file_checks: 0
+2022/10/06-01:43:57.844307 7fcf444f3d80                Options.force_consistency_checks: 0
+2022/10/06-01:43:57.844308 7fcf444f3d80                Options.report_bg_io_stats: 0
+2022/10/06-01:43:57.844309 7fcf444f3d80                               Options.ttl: 0
+2022/10/06-01:43:57.844357 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:1396] Created column family [col3] (ID 4)
+2022/10/06-01:43:57.912021 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/column_family.cc:475] --------------- Options for column family [col4]:
+2022/10/06-01:43:57.912028 7fcf444f3d80               Options.comparator: leveldb.BytewiseComparator
+2022/10/06-01:43:57.912029 7fcf444f3d80           Options.merge_operator: None
+2022/10/06-01:43:57.912029 7fcf444f3d80        Options.compaction_filter: None
+2022/10/06-01:43:57.912030 7fcf444f3d80        Options.compaction_filter_factory: None
+2022/10/06-01:43:57.912030 7fcf444f3d80         Options.memtable_factory: SkipListFactory
+2022/10/06-01:43:57.912031 7fcf444f3d80            Options.table_factory: BlockBasedTable
+2022/10/06-01:43:57.912044 7fcf444f3d80            table_factory options:   flush_block_policy_factory: FlushBlockBySizePolicyFactory (0x55d525dc4a30)
+  cache_index_and_filter_blocks: 1
+  cache_index_and_filter_blocks_with_high_priority: 0
+  pin_l0_filter_and_index_blocks_in_cache: 1
+  index_type: 0
+  hash_index_allow_collision: 1
+  checksum: 1
+  no_block_cache: 0
+  block_cache: 0x55d5260c2e90
+  block_cache_name: LRUCache
+  block_cache_options:
+    capacity : 44739242
+    num_shard_bits : 6
+    strict_capacity_limit : 0
+    high_pri_pool_ratio: 0.000
+  block_cache_compressed: (nil)
+  persistent_cache: (nil)
+  block_size: 16384
+  block_size_deviation: 10
+  block_restart_interval: 16
+  index_block_restart_interval: 1
+  metadata_block_size: 4096
+  partition_filters: 0
+  use_delta_encoding: 1
+  filter_policy: nullptr
+  whole_key_filtering: 1
+  verify_compression: 0
+  read_amp_bytes_per_bit: 0
+  format_version: 2
+  enable_index_compression: 1
+  block_align: 0
+2022/10/06-01:43:57.912045 7fcf444f3d80        Options.write_buffer_size: 4793490
+2022/10/06-01:43:57.912046 7fcf444f3d80  Options.max_write_buffer_number: 6
+2022/10/06-01:43:57.912046 7fcf444f3d80          Options.compression: Snappy
+2022/10/06-01:43:57.912047 7fcf444f3d80                  Options.bottommost_compression: Disabled
+2022/10/06-01:43:57.912048 7fcf444f3d80       Options.prefix_extractor: nullptr
+2022/10/06-01:43:57.912048 7fcf444f3d80   Options.memtable_insert_with_hint_prefix_extractor: nullptr
+2022/10/06-01:43:57.912049 7fcf444f3d80             Options.num_levels: 7
+2022/10/06-01:43:57.912049 7fcf444f3d80        Options.min_write_buffer_number_to_merge: 2
+2022/10/06-01:43:57.912049 7fcf444f3d80     Options.max_write_buffer_number_to_maintain: 0
+2022/10/06-01:43:57.912050 7fcf444f3d80            Options.compression_opts.window_bits: -14
+2022/10/06-01:43:57.912050 7fcf444f3d80                  Options.compression_opts.level: -1
+2022/10/06-01:43:57.912051 7fcf444f3d80               Options.compression_opts.strategy: 0
+2022/10/06-01:43:57.912051 7fcf444f3d80         Options.compression_opts.max_dict_bytes: 0
+2022/10/06-01:43:57.912052 7fcf444f3d80         Options.compression_opts.zstd_max_train_bytes: 0
+2022/10/06-01:43:57.912052 7fcf444f3d80      Options.level0_file_num_compaction_trigger: 2
+2022/10/06-01:43:57.912053 7fcf444f3d80          Options.level0_slowdown_writes_trigger: 20
+2022/10/06-01:43:57.912053 7fcf444f3d80              Options.level0_stop_writes_trigger: 36
+2022/10/06-01:43:57.912054 7fcf444f3d80                   Options.target_file_size_base: 67108864
+2022/10/06-01:43:57.912054 7fcf444f3d80             Options.target_file_size_multiplier: 1
+2022/10/06-01:43:57.912055 7fcf444f3d80                Options.max_bytes_for_level_base: 19173961
+2022/10/06-01:43:57.912055 7fcf444f3d80 Options.level_compaction_dynamic_level_bytes: 1
+2022/10/06-01:43:57.912056 7fcf444f3d80          Options.max_bytes_for_level_multiplier: 10.000000
+2022/10/06-01:43:57.912057 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[0]: 1
+2022/10/06-01:43:57.912058 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[1]: 1
+2022/10/06-01:43:57.912058 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[2]: 1
+2022/10/06-01:43:57.912059 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[3]: 1
+2022/10/06-01:43:57.912059 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[4]: 1
+2022/10/06-01:43:57.912063 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[5]: 1
+2022/10/06-01:43:57.912064 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[6]: 1
+2022/10/06-01:43:57.912064 7fcf444f3d80       Options.max_sequential_skip_in_iterations: 8
+2022/10/06-01:43:57.912065 7fcf444f3d80                    Options.max_compaction_bytes: 1677721600
+2022/10/06-01:43:57.912065 7fcf444f3d80                        Options.arena_block_size: 602112
+2022/10/06-01:43:57.912066 7fcf444f3d80   Options.soft_pending_compaction_bytes_limit: 68719476736
+2022/10/06-01:43:57.912066 7fcf444f3d80   Options.hard_pending_compaction_bytes_limit: 274877906944
+2022/10/06-01:43:57.912067 7fcf444f3d80       Options.rate_limit_delay_max_milliseconds: 100
+2022/10/06-01:43:57.912067 7fcf444f3d80                Options.disable_auto_compactions: 0
+2022/10/06-01:43:57.912069 7fcf444f3d80                        Options.compaction_style: kCompactionStyleLevel
+2022/10/06-01:43:57.912069 7fcf444f3d80                          Options.compaction_pri: kByCompensatedSize
+2022/10/06-01:43:57.912070 7fcf444f3d80 Options.compaction_options_universal.size_ratio: 1
+2022/10/06-01:43:57.912070 7fcf444f3d80 Options.compaction_options_universal.min_merge_width: 2
+2022/10/06-01:43:57.912071 7fcf444f3d80 Options.compaction_options_universal.max_merge_width: 4294967295
+2022/10/06-01:43:57.912071 7fcf444f3d80 Options.compaction_options_universal.max_size_amplification_percent: 200
+2022/10/06-01:43:57.912072 7fcf444f3d80 Options.compaction_options_universal.compression_size_percent: -1
+2022/10/06-01:43:57.912073 7fcf444f3d80 Options.compaction_options_universal.stop_style: kCompactionStopStyleTotalSize
+2022/10/06-01:43:57.912073 7fcf444f3d80 Options.compaction_options_fifo.max_table_files_size: 1073741824
+2022/10/06-01:43:57.912074 7fcf444f3d80 Options.compaction_options_fifo.allow_compaction: 0
+2022/10/06-01:43:57.912074 7fcf444f3d80 Options.compaction_options_fifo.ttl: 0
+2022/10/06-01:43:57.912075 7fcf444f3d80                   Options.table_properties_collectors: 
+2022/10/06-01:43:57.912075 7fcf444f3d80                   Options.inplace_update_support: 0
+2022/10/06-01:43:57.912076 7fcf444f3d80                 Options.inplace_update_num_locks: 10000
+2022/10/06-01:43:57.912076 7fcf444f3d80               Options.memtable_prefix_bloom_size_ratio: 0.000000
+2022/10/06-01:43:57.912077 7fcf444f3d80   Options.memtable_huge_page_size: 0
+2022/10/06-01:43:57.912077 7fcf444f3d80                           Options.bloom_locality: 0
+2022/10/06-01:43:57.912078 7fcf444f3d80                    Options.max_successive_merges: 0
+2022/10/06-01:43:57.912078 7fcf444f3d80                Options.optimize_filters_for_hits: 0
+2022/10/06-01:43:57.912079 7fcf444f3d80                Options.paranoid_file_checks: 0
+2022/10/06-01:43:57.912079 7fcf444f3d80                Options.force_consistency_checks: 0
+2022/10/06-01:43:57.912080 7fcf444f3d80                Options.report_bg_io_stats: 0
+2022/10/06-01:43:57.912080 7fcf444f3d80                               Options.ttl: 0
+2022/10/06-01:43:57.912107 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:1396] Created column family [col4] (ID 5)
+2022/10/06-01:43:57.991956 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/column_family.cc:475] --------------- Options for column family [col5]:
+2022/10/06-01:43:57.991964 7fcf444f3d80               Options.comparator: leveldb.BytewiseComparator
+2022/10/06-01:43:57.991965 7fcf444f3d80           Options.merge_operator: None
+2022/10/06-01:43:57.991966 7fcf444f3d80        Options.compaction_filter: None
+2022/10/06-01:43:57.991967 7fcf444f3d80        Options.compaction_filter_factory: None
+2022/10/06-01:43:57.991967 7fcf444f3d80         Options.memtable_factory: SkipListFactory
+2022/10/06-01:43:57.991968 7fcf444f3d80            Options.table_factory: BlockBasedTable
+2022/10/06-01:43:57.991982 7fcf444f3d80            table_factory options:   flush_block_policy_factory: FlushBlockBySizePolicyFactory (0x55d525dc4ef0)
+  cache_index_and_filter_blocks: 1
+  cache_index_and_filter_blocks_with_high_priority: 0
+  pin_l0_filter_and_index_blocks_in_cache: 1
+  index_type: 0
+  hash_index_allow_collision: 1
+  checksum: 1
+  no_block_cache: 0
+  block_cache: 0x55d5260c2e90
+  block_cache_name: LRUCache
+  block_cache_options:
+    capacity : 44739242
+    num_shard_bits : 6
+    strict_capacity_limit : 0
+    high_pri_pool_ratio: 0.000
+  block_cache_compressed: (nil)
+  persistent_cache: (nil)
+  block_size: 16384
+  block_size_deviation: 10
+  block_restart_interval: 16
+  index_block_restart_interval: 1
+  metadata_block_size: 4096
+  partition_filters: 0
+  use_delta_encoding: 1
+  filter_policy: nullptr
+  whole_key_filtering: 1
+  verify_compression: 0
+  read_amp_bytes_per_bit: 0
+  format_version: 2
+  enable_index_compression: 1
+  block_align: 0
+2022/10/06-01:43:57.991983 7fcf444f3d80        Options.write_buffer_size: 4793490
+2022/10/06-01:43:57.991983 7fcf444f3d80  Options.max_write_buffer_number: 6
+2022/10/06-01:43:57.991984 7fcf444f3d80          Options.compression: Snappy
+2022/10/06-01:43:57.991985 7fcf444f3d80                  Options.bottommost_compression: Disabled
+2022/10/06-01:43:57.991986 7fcf444f3d80       Options.prefix_extractor: nullptr
+2022/10/06-01:43:57.991986 7fcf444f3d80   Options.memtable_insert_with_hint_prefix_extractor: nullptr
+2022/10/06-01:43:57.991987 7fcf444f3d80             Options.num_levels: 7
+2022/10/06-01:43:57.991987 7fcf444f3d80        Options.min_write_buffer_number_to_merge: 2
+2022/10/06-01:43:57.991988 7fcf444f3d80     Options.max_write_buffer_number_to_maintain: 0
+2022/10/06-01:43:57.991988 7fcf444f3d80            Options.compression_opts.window_bits: -14
+2022/10/06-01:43:57.991989 7fcf444f3d80                  Options.compression_opts.level: -1
+2022/10/06-01:43:57.991989 7fcf444f3d80               Options.compression_opts.strategy: 0
+2022/10/06-01:43:57.991990 7fcf444f3d80         Options.compression_opts.max_dict_bytes: 0
+2022/10/06-01:43:57.991990 7fcf444f3d80         Options.compression_opts.zstd_max_train_bytes: 0
+2022/10/06-01:43:57.991991 7fcf444f3d80      Options.level0_file_num_compaction_trigger: 2
+2022/10/06-01:43:57.991991 7fcf444f3d80          Options.level0_slowdown_writes_trigger: 20
+2022/10/06-01:43:57.991992 7fcf444f3d80              Options.level0_stop_writes_trigger: 36
+2022/10/06-01:43:57.991992 7fcf444f3d80                   Options.target_file_size_base: 67108864
+2022/10/06-01:43:57.991993 7fcf444f3d80             Options.target_file_size_multiplier: 1
+2022/10/06-01:43:57.991994 7fcf444f3d80                Options.max_bytes_for_level_base: 19173961
+2022/10/06-01:43:57.991994 7fcf444f3d80 Options.level_compaction_dynamic_level_bytes: 1
+2022/10/06-01:43:57.991995 7fcf444f3d80          Options.max_bytes_for_level_multiplier: 10.000000
+2022/10/06-01:43:57.991996 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[0]: 1
+2022/10/06-01:43:57.991997 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[1]: 1
+2022/10/06-01:43:57.991997 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[2]: 1
+2022/10/06-01:43:57.991998 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[3]: 1
+2022/10/06-01:43:57.991998 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[4]: 1
+2022/10/06-01:43:57.992004 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[5]: 1
+2022/10/06-01:43:57.992004 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[6]: 1
+2022/10/06-01:43:57.992005 7fcf444f3d80       Options.max_sequential_skip_in_iterations: 8
+2022/10/06-01:43:57.992005 7fcf444f3d80                    Options.max_compaction_bytes: 1677721600
+2022/10/06-01:43:57.992006 7fcf444f3d80                        Options.arena_block_size: 602112
+2022/10/06-01:43:57.992006 7fcf444f3d80   Options.soft_pending_compaction_bytes_limit: 68719476736
+2022/10/06-01:43:57.992007 7fcf444f3d80   Options.hard_pending_compaction_bytes_limit: 274877906944
+2022/10/06-01:43:57.992008 7fcf444f3d80       Options.rate_limit_delay_max_milliseconds: 100
+2022/10/06-01:43:57.992008 7fcf444f3d80                Options.disable_auto_compactions: 0
+2022/10/06-01:43:57.992009 7fcf444f3d80                        Options.compaction_style: kCompactionStyleLevel
+2022/10/06-01:43:57.992010 7fcf444f3d80                          Options.compaction_pri: kByCompensatedSize
+2022/10/06-01:43:57.992011 7fcf444f3d80 Options.compaction_options_universal.size_ratio: 1
+2022/10/06-01:43:57.992011 7fcf444f3d80 Options.compaction_options_universal.min_merge_width: 2
+2022/10/06-01:43:57.992012 7fcf444f3d80 Options.compaction_options_universal.max_merge_width: 4294967295
+2022/10/06-01:43:57.992012 7fcf444f3d80 Options.compaction_options_universal.max_size_amplification_percent: 200
+2022/10/06-01:43:57.992013 7fcf444f3d80 Options.compaction_options_universal.compression_size_percent: -1
+2022/10/06-01:43:57.992014 7fcf444f3d80 Options.compaction_options_universal.stop_style: kCompactionStopStyleTotalSize
+2022/10/06-01:43:57.992014 7fcf444f3d80 Options.compaction_options_fifo.max_table_files_size: 1073741824
+2022/10/06-01:43:57.992015 7fcf444f3d80 Options.compaction_options_fifo.allow_compaction: 0
+2022/10/06-01:43:57.992015 7fcf444f3d80 Options.compaction_options_fifo.ttl: 0
+2022/10/06-01:43:57.992055 7fcf444f3d80                   Options.table_properties_collectors: 
+2022/10/06-01:43:57.992056 7fcf444f3d80                   Options.inplace_update_support: 0
+2022/10/06-01:43:57.992056 7fcf444f3d80                 Options.inplace_update_num_locks: 10000
+2022/10/06-01:43:57.992057 7fcf444f3d80               Options.memtable_prefix_bloom_size_ratio: 0.000000
+2022/10/06-01:43:57.992058 7fcf444f3d80   Options.memtable_huge_page_size: 0
+2022/10/06-01:43:57.992058 7fcf444f3d80                           Options.bloom_locality: 0
+2022/10/06-01:43:57.992058 7fcf444f3d80                    Options.max_successive_merges: 0
+2022/10/06-01:43:57.992059 7fcf444f3d80                Options.optimize_filters_for_hits: 0
+2022/10/06-01:43:57.992059 7fcf444f3d80                Options.paranoid_file_checks: 0
+2022/10/06-01:43:57.992060 7fcf444f3d80                Options.force_consistency_checks: 0
+2022/10/06-01:43:57.992060 7fcf444f3d80                Options.report_bg_io_stats: 0
+2022/10/06-01:43:57.992098 7fcf444f3d80                               Options.ttl: 0
+2022/10/06-01:43:57.992123 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:1396] Created column family [col5] (ID 6)
+2022/10/06-01:43:58.077084 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/column_family.cc:475] --------------- Options for column family [col6]:
+2022/10/06-01:43:58.077094 7fcf444f3d80               Options.comparator: leveldb.BytewiseComparator
+2022/10/06-01:43:58.077096 7fcf444f3d80           Options.merge_operator: None
+2022/10/06-01:43:58.077097 7fcf444f3d80        Options.compaction_filter: None
+2022/10/06-01:43:58.077099 7fcf444f3d80        Options.compaction_filter_factory: None
+2022/10/06-01:43:58.077100 7fcf444f3d80         Options.memtable_factory: SkipListFactory
+2022/10/06-01:43:58.077102 7fcf444f3d80            Options.table_factory: BlockBasedTable
+2022/10/06-01:43:58.077134 7fcf444f3d80            table_factory options:   flush_block_policy_factory: FlushBlockBySizePolicyFactory (0x55d525dc02a0)
+  cache_index_and_filter_blocks: 1
+  cache_index_and_filter_blocks_with_high_priority: 0
+  pin_l0_filter_and_index_blocks_in_cache: 1
+  index_type: 0
+  hash_index_allow_collision: 1
+  checksum: 1
+  no_block_cache: 0
+  block_cache: 0x55d5260c2e90
+  block_cache_name: LRUCache
+  block_cache_options:
+    capacity : 44739242
+    num_shard_bits : 6
+    strict_capacity_limit : 0
+    high_pri_pool_ratio: 0.000
+  block_cache_compressed: (nil)
+  persistent_cache: (nil)
+  block_size: 16384
+  block_size_deviation: 10
+  block_restart_interval: 16
+  index_block_restart_interval: 1
+  metadata_block_size: 4096
+  partition_filters: 0
+  use_delta_encoding: 1
+  filter_policy: nullptr
+  whole_key_filtering: 1
+  verify_compression: 0
+  read_amp_bytes_per_bit: 0
+  format_version: 2
+  enable_index_compression: 1
+  block_align: 0
+2022/10/06-01:43:58.077136 7fcf444f3d80        Options.write_buffer_size: 4793490
+2022/10/06-01:43:58.077138 7fcf444f3d80  Options.max_write_buffer_number: 6
+2022/10/06-01:43:58.077140 7fcf444f3d80          Options.compression: Snappy
+2022/10/06-01:43:58.077142 7fcf444f3d80                  Options.bottommost_compression: Disabled
+2022/10/06-01:43:58.077143 7fcf444f3d80       Options.prefix_extractor: nullptr
+2022/10/06-01:43:58.077145 7fcf444f3d80   Options.memtable_insert_with_hint_prefix_extractor: nullptr
+2022/10/06-01:43:58.077147 7fcf444f3d80             Options.num_levels: 7
+2022/10/06-01:43:58.077148 7fcf444f3d80        Options.min_write_buffer_number_to_merge: 2
+2022/10/06-01:43:58.077150 7fcf444f3d80     Options.max_write_buffer_number_to_maintain: 0
+2022/10/06-01:43:58.077152 7fcf444f3d80            Options.compression_opts.window_bits: -14
+2022/10/06-01:43:58.077153 7fcf444f3d80                  Options.compression_opts.level: -1
+2022/10/06-01:43:58.077155 7fcf444f3d80               Options.compression_opts.strategy: 0
+2022/10/06-01:43:58.077157 7fcf444f3d80         Options.compression_opts.max_dict_bytes: 0
+2022/10/06-01:43:58.077159 7fcf444f3d80         Options.compression_opts.zstd_max_train_bytes: 0
+2022/10/06-01:43:58.077160 7fcf444f3d80      Options.level0_file_num_compaction_trigger: 2
+2022/10/06-01:43:58.077162 7fcf444f3d80          Options.level0_slowdown_writes_trigger: 20
+2022/10/06-01:43:58.077163 7fcf444f3d80              Options.level0_stop_writes_trigger: 36
+2022/10/06-01:43:58.077165 7fcf444f3d80                   Options.target_file_size_base: 67108864
+2022/10/06-01:43:58.077167 7fcf444f3d80             Options.target_file_size_multiplier: 1
+2022/10/06-01:43:58.077168 7fcf444f3d80                Options.max_bytes_for_level_base: 19173961
+2022/10/06-01:43:58.077170 7fcf444f3d80 Options.level_compaction_dynamic_level_bytes: 1
+2022/10/06-01:43:58.077171 7fcf444f3d80          Options.max_bytes_for_level_multiplier: 10.000000
+2022/10/06-01:43:58.077175 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[0]: 1
+2022/10/06-01:43:58.077177 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[1]: 1
+2022/10/06-01:43:58.077178 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[2]: 1
+2022/10/06-01:43:58.077180 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[3]: 1
+2022/10/06-01:43:58.077181 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[4]: 1
+2022/10/06-01:43:58.077207 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[5]: 1
+2022/10/06-01:43:58.077209 7fcf444f3d80 Options.max_bytes_for_level_multiplier_addtl[6]: 1
+2022/10/06-01:43:58.077211 7fcf444f3d80       Options.max_sequential_skip_in_iterations: 8
+2022/10/06-01:43:58.077212 7fcf444f3d80                    Options.max_compaction_bytes: 1677721600
+2022/10/06-01:43:58.077214 7fcf444f3d80                        Options.arena_block_size: 602112
+2022/10/06-01:43:58.077216 7fcf444f3d80   Options.soft_pending_compaction_bytes_limit: 68719476736
+2022/10/06-01:43:58.077218 7fcf444f3d80   Options.hard_pending_compaction_bytes_limit: 274877906944
+2022/10/06-01:43:58.077220 7fcf444f3d80       Options.rate_limit_delay_max_milliseconds: 100
+2022/10/06-01:43:58.077222 7fcf444f3d80                Options.disable_auto_compactions: 0
+2022/10/06-01:43:58.077225 7fcf444f3d80                        Options.compaction_style: kCompactionStyleLevel
+2022/10/06-01:43:58.077228 7fcf444f3d80                          Options.compaction_pri: kByCompensatedSize
+2022/10/06-01:43:58.077230 7fcf444f3d80 Options.compaction_options_universal.size_ratio: 1
+2022/10/06-01:43:58.077232 7fcf444f3d80 Options.compaction_options_universal.min_merge_width: 2
+2022/10/06-01:43:58.077233 7fcf444f3d80 Options.compaction_options_universal.max_merge_width: 4294967295
+2022/10/06-01:43:58.077235 7fcf444f3d80 Options.compaction_options_universal.max_size_amplification_percent: 200
+2022/10/06-01:43:58.077236 7fcf444f3d80 Options.compaction_options_universal.compression_size_percent: -1
+2022/10/06-01:43:58.077237 7fcf444f3d80 Options.compaction_options_universal.stop_style: kCompactionStopStyleTotalSize
+2022/10/06-01:43:58.077238 7fcf444f3d80 Options.compaction_options_fifo.max_table_files_size: 1073741824
+2022/10/06-01:43:58.077239 7fcf444f3d80 Options.compaction_options_fifo.allow_compaction: 0
+2022/10/06-01:43:58.077240 7fcf444f3d80 Options.compaction_options_fifo.ttl: 0
+2022/10/06-01:43:58.077241 7fcf444f3d80                   Options.table_properties_collectors: 
+2022/10/06-01:43:58.077242 7fcf444f3d80                   Options.inplace_update_support: 0
+2022/10/06-01:43:58.077243 7fcf444f3d80                 Options.inplace_update_num_locks: 10000
+2022/10/06-01:43:58.077245 7fcf444f3d80               Options.memtable_prefix_bloom_size_ratio: 0.000000
+2022/10/06-01:43:58.077246 7fcf444f3d80   Options.memtable_huge_page_size: 0
+2022/10/06-01:43:58.077247 7fcf444f3d80                           Options.bloom_locality: 0
+2022/10/06-01:43:58.077248 7fcf444f3d80                    Options.max_successive_merges: 0
+2022/10/06-01:43:58.077249 7fcf444f3d80                Options.optimize_filters_for_hits: 0
+2022/10/06-01:43:58.077250 7fcf444f3d80                Options.paranoid_file_checks: 0
+2022/10/06-01:43:58.077251 7fcf444f3d80                Options.force_consistency_checks: 0
+2022/10/06-01:43:58.077252 7fcf444f3d80                Options.report_bg_io_stats: 0
+2022/10/06-01:43:58.077253 7fcf444f3d80                               Options.ttl: 0
+2022/10/06-01:43:58.077308 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:1396] Created column family [col6] (ID 7)
+2022/10/06-01:43:58.451758 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col0] New memtable created with log file: #23. Immutable memtables: 0.
+2022/10/06-01:44:16.067121 7fcf4290d700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1106] Flushing column family with largest mem table size. Write buffer is using 12431096 bytes out of a total of 9586980.
+2022/10/06-01:44:16.067383 7fcf4290d700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col0] New memtable created with log file: #24. Immutable memtables: 1.
+2022/10/06-01:44:16.067468 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:80] [JOB 3] Syncing log #6
+2022/10/06-01:44:16.229486 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:80] [JOB 3] Syncing log #23
+2022/10/06-01:44:16.332201 7fcf037fe700 (Original Log Time 2022/10/06-01:44:16.067452) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:1424] Calling FlushMemTableToOutputFile with column family [col0], flush slots available 1, compaction slots available 1, flush slots scheduled 1, compaction slots scheduled 0
+2022/10/06-01:44:16.332212 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:301] [col0] [JOB 3] Flushing memtable with next log file: 23
+2022/10/06-01:44:16.332218 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:301] [col0] [JOB 3] Flushing memtable with next log file: 24
+2022/10/06-01:44:16.332252 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035056332246, "job": 3, "event": "flush_started", "num_memtables": 2, "num_entries": 36, "num_deletes": 0, "memory_usage": 9404096, "flush_reason": "Write Buffer Full"}
+2022/10/06-01:44:16.332256 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:331] [col0] [JOB 3] Level-0 flush table #25: started
+2022/10/06-01:44:17.192352 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035057192342, "cf_name": "col0", "job": 3, "event": "table_file_creation", "file_number": 25, "file_size": 6867860, "table_properties": {"data_size": 6866798, "index_size": 190, "filter_size": 0, "raw_key_size": 416, "raw_average_key_size": 21, "raw_value_size": 9400187, "raw_average_value_size": 494746, "num_data_blocks": 8, "num_entries": 19, "filter_policy_name": "", "kDeletedKeys": "0", "kMergeOperands": "0"}}
+2022/10/06-01:44:17.192398 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:371] [col0] [JOB 3] Level-0 flush table #25: 6867860 bytes OK
+2022/10/06-01:44:17.260752 7fcf037fe700 (Original Log Time 2022/10/06-01:44:17.226660) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:377] [col0] Level-0 commit table #25 started
+2022/10/06-01:44:17.260757 7fcf037fe700 (Original Log Time 2022/10/06-01:44:17.260673) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:409] [col0] Level-0 commit table #25: memtable #1 done
+2022/10/06-01:44:17.260759 7fcf037fe700 (Original Log Time 2022/10/06-01:44:17.260678) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:409] [col0] Level-0 commit table #25: memtable #2 done
+2022/10/06-01:44:17.260760 7fcf037fe700 (Original Log Time 2022/10/06-01:44:17.260700) EVENT_LOG_v1 {"time_micros": 1665035057260691, "job": 3, "event": "flush_finished", "output_compression": "Snappy", "lsm_state": [1, 0, 0, 0, 0, 0, 0], "immutable_memtables": 0}
+2022/10/06-01:44:17.260762 7fcf037fe700 (Original Log Time 2022/10/06-01:44:17.260733) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:177] [col0] Level summary: base level 6 max bytes base 18446744073709551615 files[1 0 0 0 0 0 0] max score 0.50
+2022/10/06-01:44:17.260768 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_files.cc:347] [JOB 3] Try to delete WAL files size 6829221, prev total WAL file size 12741746, number of live WAL files 3.
+2022/10/06-01:44:23.236742 7fcf3bfff700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1106] Flushing column family with largest mem table size. Write buffer is using 8960648 bytes out of a total of 9586980.
+2022/10/06-01:44:23.236924 7fcf3bfff700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col1] New memtable created with log file: #26. Immutable memtables: 0.
+2022/10/06-01:44:23.236960 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:80] [JOB 4] Syncing log #24
+2022/10/06-01:44:23.414252 7fcf037fe700 (Original Log Time 2022/10/06-01:44:23.236954) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:1424] Calling FlushMemTableToOutputFile with column family [col1], flush slots available 1, compaction slots available 1, flush slots scheduled 1, compaction slots scheduled 0
+2022/10/06-01:44:23.414262 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:301] [col1] [JOB 4] Flushing memtable with next log file: 26
+2022/10/06-01:44:23.414294 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035063414287, "job": 4, "event": "flush_started", "num_memtables": 1, "num_entries": 25, "num_deletes": 0, "memory_usage": 15744, "flush_reason": "Write Buffer Full"}
+2022/10/06-01:44:23.414299 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:331] [col1] [JOB 4] Level-0 flush table #27: started
+2022/10/06-01:44:23.448484 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035063448472, "cf_name": "col1", "job": 4, "event": "table_file_creation", "file_number": 27, "file_size": 9846, "table_properties": {"data_size": 8916, "index_size": 28, "filter_size": 0, "raw_key_size": 1000, "raw_average_key_size": 40, "raw_value_size": 13206, "raw_average_value_size": 528, "num_data_blocks": 1, "num_entries": 25, "filter_policy_name": "", "kDeletedKeys": "0", "kMergeOperands": "0"}}
+2022/10/06-01:44:23.448535 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:371] [col1] [JOB 4] Level-0 flush table #27: 9846 bytes OK
+2022/10/06-01:44:23.516247 7fcf037fe700 (Original Log Time 2022/10/06-01:44:23.482221) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:377] [col1] Level-0 commit table #27 started
+2022/10/06-01:44:23.516250 7fcf037fe700 (Original Log Time 2022/10/06-01:44:23.516193) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:409] [col1] Level-0 commit table #27: memtable #1 done
+2022/10/06-01:44:23.516252 7fcf037fe700 (Original Log Time 2022/10/06-01:44:23.516215) EVENT_LOG_v1 {"time_micros": 1665035063516209, "job": 4, "event": "flush_finished", "output_compression": "Snappy", "lsm_state": [1, 0, 0, 0, 0, 0, 0], "immutable_memtables": 0}
+2022/10/06-01:44:23.516253 7fcf037fe700 (Original Log Time 2022/10/06-01:44:23.516235) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:177] [col1] Level summary: base level 6 max bytes base 18446744073709551615 files[1 0 0 0 0 0 0] max score 0.50
+2022/10/06-01:44:24.086005 7fcf4190c700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1106] Flushing column family with largest mem table size. Write buffer is using 9783432 bytes out of a total of 9586980.
+2022/10/06-01:44:24.086183 7fcf4190c700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col2] New memtable created with log file: #28. Immutable memtables: 0.
+2022/10/06-01:44:24.086202 7fcf4190c700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col0] New memtable created with log file: #28. Immutable memtables: 0.
+2022/10/06-01:44:24.086217 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:80] [JOB 5] Syncing log #26
+2022/10/06-01:44:24.148942 7fcf037fe700 (Original Log Time 2022/10/06-01:44:24.086210) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:1424] Calling FlushMemTableToOutputFile with column family [col2], flush slots available 1, compaction slots available 1, flush slots scheduled 1, compaction slots scheduled 0
+2022/10/06-01:44:24.148951 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:301] [col2] [JOB 5] Flushing memtable with next log file: 28
+2022/10/06-01:44:24.148975 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035064148971, "job": 5, "event": "flush_started", "num_memtables": 1, "num_entries": 26, "num_deletes": 0, "memory_usage": 1299736, "flush_reason": "Write Buffer Full"}
+2022/10/06-01:44:24.148977 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:331] [col2] [JOB 5] Level-0 flush table #29: started
+2022/10/06-01:44:24.189405 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035064189397, "cf_name": "col2", "job": 5, "event": "table_file_creation", "file_number": 29, "file_size": 610335, "table_properties": {"data_size": 609173, "index_size": 334, "filter_size": 0, "raw_key_size": 1040, "raw_average_key_size": 40, "raw_value_size": 1212655, "raw_average_value_size": 46640, "num_data_blocks": 15, "num_entries": 26, "filter_policy_name": "", "kDeletedKeys": "0", "kMergeOperands": "0"}}
+2022/10/06-01:44:24.189443 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:371] [col2] [JOB 5] Level-0 flush table #29: 610335 bytes OK
+2022/10/06-01:44:24.257458 7fcf037fe700 (Original Log Time 2022/10/06-01:44:24.223191) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:377] [col2] Level-0 commit table #29 started
+2022/10/06-01:44:24.257466 7fcf037fe700 (Original Log Time 2022/10/06-01:44:24.257326) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:409] [col2] Level-0 commit table #29: memtable #1 done
+2022/10/06-01:44:24.257467 7fcf037fe700 (Original Log Time 2022/10/06-01:44:24.257384) EVENT_LOG_v1 {"time_micros": 1665035064257373, "job": 5, "event": "flush_finished", "output_compression": "Snappy", "lsm_state": [1, 0, 0, 0, 0, 0, 0], "immutable_memtables": 0}
+2022/10/06-01:44:24.257469 7fcf037fe700 (Original Log Time 2022/10/06-01:44:24.257428) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:177] [col2] Level summary: base level 6 max bytes base 18446744073709551615 files[1 0 0 0 0 0 0] max score 0.50
+2022/10/06-01:44:25.150414 7fcf4190c700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1106] Flushing column family with largest mem table size. Write buffer is using 9692296 bytes out of a total of 9586980.
+2022/10/06-01:44:25.150754 7fcf4190c700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col3] New memtable created with log file: #30. Immutable memtables: 0.
+2022/10/06-01:44:25.150863 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:80] [JOB 6] Syncing log #28
+2022/10/06-01:44:25.198872 7fcf037fe700 (Original Log Time 2022/10/06-01:44:25.150847) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:1424] Calling FlushMemTableToOutputFile with column family [col3], flush slots available 1, compaction slots available 1, flush slots scheduled 1, compaction slots scheduled 0
+2022/10/06-01:44:25.198885 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:301] [col3] [JOB 6] Flushing memtable with next log file: 30
+2022/10/06-01:44:25.198906 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035065198900, "job": 6, "event": "flush_started", "num_memtables": 1, "num_entries": 6484, "num_deletes": 0, "memory_usage": 3373056, "flush_reason": "Write Buffer Full"}
+2022/10/06-01:44:25.198908 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:331] [col3] [JOB 6] Level-0 flush table #31: started
+2022/10/06-01:44:25.249643 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035065249630, "cf_name": "col3", "job": 6, "event": "table_file_creation", "file_number": 31, "file_size": 744930, "table_properties": {"data_size": 743267, "index_size": 1061, "filter_size": 0, "raw_key_size": 262922, "raw_average_key_size": 40, "raw_value_size": 2939555, "raw_average_value_size": 457, "num_data_blocks": 46, "num_entries": 6432, "filter_policy_name": "", "kDeletedKeys": "0", "kMergeOperands": "0"}}
+2022/10/06-01:44:25.249688 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:371] [col3] [JOB 6] Level-0 flush table #31: 744930 bytes OK
+2022/10/06-01:44:25.317452 7fcf037fe700 (Original Log Time 2022/10/06-01:44:25.283376) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:377] [col3] Level-0 commit table #31 started
+2022/10/06-01:44:25.317457 7fcf037fe700 (Original Log Time 2022/10/06-01:44:25.317362) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:409] [col3] Level-0 commit table #31: memtable #1 done
+2022/10/06-01:44:25.317459 7fcf037fe700 (Original Log Time 2022/10/06-01:44:25.317396) EVENT_LOG_v1 {"time_micros": 1665035065317389, "job": 6, "event": "flush_finished", "output_compression": "Snappy", "lsm_state": [1, 0, 0, 0, 0, 0, 0], "immutable_memtables": 0}
+2022/10/06-01:44:25.317460 7fcf037fe700 (Original Log Time 2022/10/06-01:44:25.317431) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:177] [col3] Level summary: base level 6 max bytes base 18446744073709551615 files[1 0 0 0 0 0 0] max score 0.50
+2022/10/06-01:44:29.076234 7fcf4190c700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1106] Flushing column family with largest mem table size. Write buffer is using 9866368 bytes out of a total of 9586980.
+2022/10/06-01:44:29.076448 7fcf4190c700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col4] New memtable created with log file: #32. Immutable memtables: 0.
+2022/10/06-01:44:29.076541 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:80] [JOB 7] Syncing log #30
+2022/10/06-01:44:29.162041 7fcf037fe700 (Original Log Time 2022/10/06-01:44:29.076533) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:1424] Calling FlushMemTableToOutputFile with column family [col4], flush slots available 1, compaction slots available 1, flush slots scheduled 1, compaction slots scheduled 0
+2022/10/06-01:44:29.162055 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:301] [col4] [JOB 7] Flushing memtable with next log file: 32
+2022/10/06-01:44:29.162082 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035069162076, "job": 7, "event": "flush_started", "num_memtables": 1, "num_entries": 2, "num_deletes": 0, "memory_usage": 840, "flush_reason": "Write Buffer Full"}
+2022/10/06-01:44:29.162086 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:331] [col4] [JOB 7] Level-0 flush table #33: started
+2022/10/06-01:44:29.196409 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035069196376, "cf_name": "col4", "job": 7, "event": "table_file_creation", "file_number": 33, "file_size": 1004, "table_properties": {"data_size": 79, "index_size": 27, "filter_size": 0, "raw_key_size": 56, "raw_average_key_size": 28, "raw_value_size": 4, "raw_average_value_size": 2, "num_data_blocks": 1, "num_entries": 2, "filter_policy_name": "", "kDeletedKeys": "0", "kMergeOperands": "0"}}
+2022/10/06-01:44:29.196474 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:371] [col4] [JOB 7] Level-0 flush table #33: 1004 bytes OK
+2022/10/06-01:44:29.275028 7fcf037fe700 (Original Log Time 2022/10/06-01:44:29.229912) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:377] [col4] Level-0 commit table #33 started
+2022/10/06-01:44:29.275032 7fcf037fe700 (Original Log Time 2022/10/06-01:44:29.274977) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:409] [col4] Level-0 commit table #33: memtable #1 done
+2022/10/06-01:44:29.275033 7fcf037fe700 (Original Log Time 2022/10/06-01:44:29.274999) EVENT_LOG_v1 {"time_micros": 1665035069274993, "job": 7, "event": "flush_finished", "output_compression": "Snappy", "lsm_state": [1, 0, 0, 0, 0, 0, 0], "immutable_memtables": 0}
+2022/10/06-01:44:29.275034 7fcf037fe700 (Original Log Time 2022/10/06-01:44:29.275017) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:177] [col4] Level summary: base level 6 max bytes base 18446744073709551615 files[1 0 0 0 0 0 0] max score 0.50
+2022/10/06-01:44:29.275038 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_files.cc:347] [JOB 7] Try to delete WAL files size 4173715, prev total WAL file size 16573147, number of live WAL files 6.
+2022/10/06-01:44:30.151199 7fcf3bfff700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1106] Flushing column family with largest mem table size. Write buffer is using 10911056 bytes out of a total of 9586980.
+2022/10/06-01:44:30.151381 7fcf3bfff700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col1] New memtable created with log file: #34. Immutable memtables: 0.
+2022/10/06-01:44:30.151422 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:80] [JOB 8] Syncing log #32
+2022/10/06-01:44:30.212185 7fcf037fe700 (Original Log Time 2022/10/06-01:44:30.151416) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:1424] Calling FlushMemTableToOutputFile with column family [col1], flush slots available 1, compaction slots available 1, flush slots scheduled 1, compaction slots scheduled 0
+2022/10/06-01:44:30.212231 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:301] [col1] [JOB 8] Flushing memtable with next log file: 34
+2022/10/06-01:44:30.212302 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035070212283, "job": 8, "event": "flush_started", "num_memtables": 1, "num_entries": 7, "num_deletes": 0, "memory_usage": 5216, "flush_reason": "Write Buffer Full"}
+2022/10/06-01:44:30.212309 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:331] [col1] [JOB 8] Level-0 flush table #35: started
+2022/10/06-01:44:30.246096 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035070246086, "cf_name": "col1", "job": 8, "event": "table_file_creation", "file_number": 35, "file_size": 5121, "table_properties": {"data_size": 4191, "index_size": 28, "filter_size": 0, "raw_key_size": 280, "raw_average_key_size": 40, "raw_value_size": 3870, "raw_average_value_size": 552, "num_data_blocks": 1, "num_entries": 7, "filter_policy_name": "", "kDeletedKeys": "0", "kMergeOperands": "0"}}
+2022/10/06-01:44:30.246126 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:371] [col1] [JOB 8] Level-0 flush table #35: 5121 bytes OK
+2022/10/06-01:44:30.313997 7fcf037fe700 (Original Log Time 2022/10/06-01:44:30.279896) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:377] [col1] Level-0 commit table #35 started
+2022/10/06-01:44:30.314002 7fcf037fe700 (Original Log Time 2022/10/06-01:44:30.313915) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:409] [col1] Level-0 commit table #35: memtable #1 done
+2022/10/06-01:44:30.314003 7fcf037fe700 (Original Log Time 2022/10/06-01:44:30.313945) EVENT_LOG_v1 {"time_micros": 1665035070313939, "job": 8, "event": "flush_finished", "output_compression": "Snappy", "lsm_state": [2, 0, 0, 0, 0, 0, 0], "immutable_memtables": 0}
+2022/10/06-01:44:30.314005 7fcf037fe700 (Original Log Time 2022/10/06-01:44:30.313983) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:177] [col1] Level summary: base level 6 max bytes base 18446744073709551615 files[2 0 0 0 0 0 0] max score 1.00
+2022/10/06-01:44:30.314332 7fcf399fa700 [WARN] [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:491] ------- DUMPING STATS -------
+2022/10/06-01:44:30.314424 7fcf399fa700 [WARN] [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:492] 
+** DB Stats **
+Uptime(secs): 32.8 total, 32.8 interval
+Cumulative writes: 36 writes, 9086 keys, 36 commit groups, 1.0 writes per commit group, ingest: 0.02 GB, 0.71 MB/s
+Cumulative WAL: 36 writes, 0 syncs, 36.00 writes per sync, written: 0.02 GB, 0.71 MB/s
+Cumulative stall: 00:00:0.000 H:M:S, 0.0 percent
+Interval writes: 36 writes, 9086 keys, 36 commit groups, 1.0 writes per commit group, ingest: 23.16 MB, 0.71 MB/s
+Interval WAL: 36 writes, 0 syncs, 36.00 writes per sync, written: 0.02 MB, 0.71 MB/s
+Interval stall: 00:00:0.000 H:M:S, 0.0 percent
+
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.8 total, 32.8 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [default] **
+
+** Compaction Stats [col0] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0    6.55 MB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      7.3         1         1    0.894       0      0
+ Sum      1/0    6.55 MB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      7.3         1         1    0.894       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      7.3         1         1    0.894       0      0
+Uptime(secs): 32.7 total, 32.7 interval
+Flush(GB): cumulative 0.006, interval 0.006
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.01 GB write, 0.20 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.9 seconds
+Interval compaction: 0.01 GB write, 0.20 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.9 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col0] **
+
+** Compaction Stats [col1] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      2/0   14.62 KB   1.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.1         0         2    0.068       0      0
+ Sum      2/0   14.62 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.1         0         2    0.068       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.1         0         2    0.068       0      0
+Uptime(secs): 32.6 total, 32.6 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col1] **
+
+** Compaction Stats [col2] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0   596.03 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      7.8         0         1    0.074       0      0
+ Sum      1/0   596.03 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      7.8         0         1    0.074       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      7.8         0         1    0.074       0      0
+Uptime(secs): 32.5 total, 32.5 interval
+Flush(GB): cumulative 0.001, interval 0.001
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.02 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Interval compaction: 0.00 GB write, 0.02 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col2] **
+
+** Compaction Stats [col3] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0   727.47 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      8.4         0         1    0.085       0      0
+ Sum      1/0   727.47 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      8.4         0         1    0.085       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      8.4         0         1    0.085       0      0
+Uptime(secs): 32.5 total, 32.5 interval
+Flush(GB): cumulative 0.001, interval 0.001
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.02 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Interval compaction: 0.00 GB write, 0.02 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col3] **
+
+** Compaction Stats [col4] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0    0.98 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.0         0         1    0.068       0      0
+ Sum      1/0    0.98 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.0         0         1    0.068       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.0         0         1    0.068       0      0
+Uptime(secs): 32.4 total, 32.4 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col4] **
+
+** Compaction Stats [col5] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.3 total, 32.3 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col5] **
+
+** Compaction Stats [col6] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.2 total, 32.2 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col6] **
+
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.8 total, 0.0 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [default] **
+
+** Compaction Stats [col0] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0    6.55 MB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      7.3         1         1    0.894       0      0
+ Sum      1/0    6.55 MB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      7.3         1         1    0.894       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.7 total, 0.0 interval
+Flush(GB): cumulative 0.006, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.01 GB write, 0.20 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.9 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col0] **
+
+** Compaction Stats [col1] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      2/0   14.62 KB   1.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.1         0         2    0.068       0      0
+ Sum      2/0   14.62 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.1         0         2    0.068       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.6 total, 0.0 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col1] **
+
+** Compaction Stats [col2] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0   596.03 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      7.8         0         1    0.074       0      0
+ Sum      1/0   596.03 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      7.8         0         1    0.074       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.5 total, 0.0 interval
+Flush(GB): cumulative 0.001, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.02 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col2] **
+
+** Compaction Stats [col3] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0   727.47 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      8.4         0         1    0.085       0      0
+ Sum      1/0   727.47 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      8.4         0         1    0.085       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.5 total, 0.0 interval
+Flush(GB): cumulative 0.001, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.02 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col3] **
+
+** Compaction Stats [col4] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0    0.98 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.0         0         1    0.068       0      0
+ Sum      1/0    0.98 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.0         0         1    0.068       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.4 total, 0.0 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col4] **
+
+** Compaction Stats [col5] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.3 total, 0.0 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col5] **
+
+** Compaction Stats [col6] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 32.2 total, 0.0 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [col6] **
+2022/10/06-01:44:30.314489 7fcf399fa700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/compaction_job.cc:1531] [col1] [JOB 9] Compacting 2@0 files to L6, score 1.00
+2022/10/06-01:44:30.314493 7fcf399fa700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/compaction_job.cc:1535] [col1] Compaction start summary: Base version 15 Base level 0, inputs: [35(5121B) 27(9846B)]
+2022/10/06-01:44:30.314529 7fcf399fa700 EVENT_LOG_v1 {"time_micros": 1665035070314502, "job": 9, "event": "compaction_started", "compaction_reason": "LevelL0FilesNum", "files_L0": [35, 27], "score": 1, "input_data_size": 14967}
+2022/10/06-01:44:30.353569 7fcf399fa700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/compaction_job.cc:1211] [col1] [JOB 9] Generated table #36: 32 keys, 13814 bytes
+2022/10/06-01:44:30.353594 7fcf399fa700 EVENT_LOG_v1 {"time_micros": 1665035070353585, "cf_name": "col1", "job": 9, "event": "table_file_creation", "file_number": 36, "file_size": 13814, "table_properties": {"data_size": 12873, "index_size": 48, "filter_size": 0, "raw_key_size": 1280, "raw_average_key_size": 40, "raw_value_size": 17076, "raw_average_value_size": 533, "num_data_blocks": 2, "num_entries": 32, "filter_policy_name": "", "kDeletedKeys": "0", "kMergeOperands": "0"}}
+2022/10/06-01:44:30.387350 7fcf399fa700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/compaction_job.cc:1287] [col1] [JOB 9] Compacted 2@0 files to L6 => 13814 bytes
+2022/10/06-01:44:30.387376 7fcf399fa700 [WARN] [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/version_set.cc:2485] More existing levels in DB than needed. max_bytes_for_level_multiplier may not be guaranteed.
+2022/10/06-01:44:30.421378 7fcf399fa700 (Original Log Time 2022/10/06-01:44:30.421322) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/compaction_job.cc:685] [col1] compacted to: base level 6 max bytes base 19173961 files[0 0 0 0 0 0 1] max score 0.00, MB/sec: 0.2 rd, 0.2 wr, level 6, files in(2, 0) out(1) MB in(0.0, 0.0) out(0.0), read-write-amplify(1.9) write-amplify(0.9) OK, records in: 32, records dropped: 0 output_compression: Snappy
+2022/10/06-01:44:30.421382 7fcf399fa700 (Original Log Time 2022/10/06-01:44:30.421348) EVENT_LOG_v1 {"time_micros": 1665035070421340, "job": 9, "event": "compaction_finished", "compaction_time_micros": 72775, "output_level": 6, "num_output_files": 1, "total_output_size": 13814, "num_input_records": 32, "num_output_records": 32, "num_subcompactions": 1, "output_compression": "Snappy", "num_single_delete_mismatches": 0, "num_single_delete_fallthrough": 0, "lsm_state": [0, 0, 0, 0, 0, 0, 1]}
+2022/10/06-01:44:30.421499 7fcf399fa700 EVENT_LOG_v1 {"time_micros": 1665035070421496, "job": 9, "event": "table_file_deletion", "file_number": 35}
+2022/10/06-01:44:30.421573 7fcf399fa700 EVENT_LOG_v1 {"time_micros": 1665035070421571, "job": 9, "event": "table_file_deletion", "file_number": 27}
+2022/10/06-01:44:31.111029 7fcf4290d700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1106] Flushing column family with largest mem table size. Write buffer is using 10903984 bytes out of a total of 9586980.
+2022/10/06-01:44:31.111199 7fcf4290d700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col0] New memtable created with log file: #37. Immutable memtables: 1.
+2022/10/06-01:44:31.111238 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:80] [JOB 10] Syncing log #34
+2022/10/06-01:44:31.192907 7fcf037fe700 (Original Log Time 2022/10/06-01:44:31.111230) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:1424] Calling FlushMemTableToOutputFile with column family [col0], flush slots available 1, compaction slots available 1, flush slots scheduled 1, compaction slots scheduled 0
+2022/10/06-01:44:31.192915 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:301] [col0] [JOB 10] Flushing memtable with next log file: 28
+2022/10/06-01:44:31.192921 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:301] [col0] [JOB 10] Flushing memtable with next log file: 37
+2022/10/06-01:44:31.192942 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035071192938, "job": 10, "event": "flush_started", "num_memtables": 2, "num_entries": 30, "num_deletes": 0, "memory_usage": 8697976, "flush_reason": "Write Buffer Full"}
+2022/10/06-01:44:31.192945 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:331] [col0] [JOB 10] Level-0 flush table #38: started
+2022/10/06-01:44:31.405749 7fcf037fe700 EVENT_LOG_v1 {"time_micros": 1665035071405736, "cf_name": "col0", "job": 10, "event": "table_file_creation", "file_number": 38, "file_size": 8696901, "table_properties": {"data_size": 8695717, "index_size": 362, "filter_size": 0, "raw_key_size": 350, "raw_average_key_size": 21, "raw_value_size": 8695094, "raw_average_value_size": 543443, "num_data_blocks": 15, "num_entries": 16, "filter_policy_name": "", "kDeletedKeys": "0", "kMergeOperands": "0"}}
+2022/10/06-01:44:31.405795 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/flush_job.cc:371] [col0] [JOB 10] Level-0 flush table #38: 8696901 bytes OK
+2022/10/06-01:44:31.473864 7fcf037fe700 (Original Log Time 2022/10/06-01:44:31.439334) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:377] [col0] Level-0 commit table #38 started
+2022/10/06-01:44:31.473871 7fcf037fe700 (Original Log Time 2022/10/06-01:44:31.473596) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:409] [col0] Level-0 commit table #38: memtable #1 done
+2022/10/06-01:44:31.473872 7fcf037fe700 (Original Log Time 2022/10/06-01:44:31.473618) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/memtable_list.cc:409] [col0] Level-0 commit table #38: memtable #2 done
+2022/10/06-01:44:31.473874 7fcf037fe700 (Original Log Time 2022/10/06-01:44:31.473692) EVENT_LOG_v1 {"time_micros": 1665035071473669, "job": 10, "event": "flush_finished", "output_compression": "Snappy", "lsm_state": [2, 0, 0, 0, 0, 0, 0], "immutable_memtables": 0}
+2022/10/06-01:44:31.473875 7fcf037fe700 (Original Log Time 2022/10/06-01:44:31.473812) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:177] [col0] Level summary: base level 6 max bytes base 18446744073709551615 files[2 0 0 0 0 0 0] max score 1.00
+2022/10/06-01:44:31.473885 7fcf037fe700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_files.cc:347] [JOB 10] Try to delete WAL files size 7376381, prev total WAL file size 14168893, number of live WAL files 7.
+2022/10/06-01:44:31.473921 7fcf03fff700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/compaction_job.cc:1531] [col0] [JOB 11] Compacting 2@0 files to L6, score 1.00
+2022/10/06-01:44:31.473927 7fcf03fff700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/compaction_job.cc:1535] [col0] Compaction start summary: Base version 17 Base level 0, inputs: [38(8493KB) 25(6706KB)]
+2022/10/06-01:44:31.473942 7fcf03fff700 EVENT_LOG_v1 {"time_micros": 1665035071473934, "job": 11, "event": "compaction_started", "compaction_reason": "LevelL0FilesNum", "files_L0": [38, 25], "score": 1, "input_data_size": 15564761}
+2022/10/06-01:44:31.815783 7fcf03fff700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/compaction_job.cc:1211] [col0] [JOB 11] Generated table #39: 34 keys, 15563784 bytes
+2022/10/06-01:44:31.815813 7fcf03fff700 EVENT_LOG_v1 {"time_micros": 1665035071815803, "cf_name": "col0", "job": 11, "event": "table_file_creation", "file_number": 39, "file_size": 15563784, "table_properties": {"data_size": 15562461, "index_size": 550, "filter_size": 0, "raw_key_size": 746, "raw_average_key_size": 21, "raw_value_size": 18095280, "raw_average_value_size": 532214, "num_data_blocks": 23, "num_entries": 34, "filter_policy_name": "", "kDeletedKeys": "0", "kMergeOperands": "0"}}
+2022/10/06-01:44:31.869848 7fcf03fff700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/compaction_job.cc:1287] [col0] [JOB 11] Compacted 2@0 files to L6 => 15563784 bytes
+2022/10/06-01:44:31.903883 7fcf03fff700 (Original Log Time 2022/10/06-01:44:31.903827) [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/compaction_job.cc:685] [col0] compacted to: base level 6 max bytes base 19173961 files[0 0 0 0 0 0 1] max score 0.00, MB/sec: 39.3 rd, 39.3 wr, level 6, files in(2, 0) out(1) MB in(14.8, 0.0) out(14.8), read-write-amplify(2.0) write-amplify(1.0) OK, records in: 35, records dropped: 1 output_compression: Snappy
+2022/10/06-01:44:31.903886 7fcf03fff700 (Original Log Time 2022/10/06-01:44:31.903856) EVENT_LOG_v1 {"time_micros": 1665035071903849, "job": 11, "event": "compaction_finished", "compaction_time_micros": 395856, "output_level": 6, "num_output_files": 1, "total_output_size": 15563784, "num_input_records": 35, "num_output_records": 34, "num_subcompactions": 1, "output_compression": "Snappy", "num_single_delete_mismatches": 0, "num_single_delete_fallthrough": 0, "lsm_state": [0, 0, 0, 0, 0, 0, 1]}
+2022/10/06-01:44:31.904893 7fcf03fff700 EVENT_LOG_v1 {"time_micros": 1665035071904889, "job": 11, "event": "table_file_deletion", "file_number": 38}
+2022/10/06-01:44:31.905679 7fcf03fff700 EVENT_LOG_v1 {"time_micros": 1665035071905677, "job": 11, "event": "table_file_deletion", "file_number": 25}
+2022/10/06-01:44:39.223603 7fcf4190c700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1106] Flushing column family with largest mem table size. Write buffer is using 8828192 bytes out of a total of 9586980.
+2022/10/06-01:44:39.223684 7fcf4190c700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col2] New memtable created with log file: #40. Immutable memtables: 0.
+2022/10/06-01:44:39.226505 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1106] Flushing column family with largest mem table size. Write buffer is using 8828192 bytes out of a total of 9586980.
+2022/10/06-01:44:39.226671 7fcf444f3d80 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_write.cc:1373] [col2] New memtable created with log file: #41. Immutable memtables: 0.
+2022/10/06-01:44:39.226707 7fcf037fe700 [ERROR] [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl_compaction_flush.cc:1463] Waiting after background flush error: IO error: While open a file for appending: /home/srisht/project_repo/lmpt/openethlmpt/parity0/chains/PoA/db/b2d1e34afe8c784c/overlayrecent/db/000040.log: Too many open filesAccumulated background error counts: 1
+2022/10/06-01:44:39.963956 7fcea83f6700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:252] Shutdown: canceling all background work
+2022/10/06-01:44:40.227478 7fcea83f6700 [/home/srisht/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-rocksdb-sys-0.5.6/rocksdb/db/db_impl.cc:398] Shutdown complete

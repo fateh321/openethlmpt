@@ -44,7 +44,8 @@ use std::{
     time::{Duration, UNIX_EPOCH},
     u64,
 };
-
+use std::time::SystemTime;
+use rayon::prelude::*;
 use self::finality::RollingFinality;
 use super::{
     signer::EngineSigner,
@@ -83,6 +84,7 @@ use types::{
     transaction::SignedTransaction,
     BlockNumber,
 };
+// use hyperproofs::AggProof;
 use unexpected::{Mismatch, OutOfBounds};
 
 //mod block_gas_limit as crate_block_gas_limit;
@@ -183,9 +185,9 @@ impl From<ethjson::spec::AuthorityRoundParams> for AuthorityRoundParams {
             .collect();
         if (p.block_reward_contract_code.is_some() || p.block_reward_contract_address.is_some())
             && br_transitions
-                .keys()
-                .next()
-                .map_or(false, |&block_num| block_num <= transition_block_num)
+            .keys()
+            .next()
+            .map_or(false, |&block_num| block_num <= transition_block_num)
         {
             let s = "blockRewardContractTransition";
             panic!("{} should be less than any of the keys in {}s", s, s);
@@ -332,8 +334,12 @@ impl Step {
                 .checked_sub(transition_step)?
                 .checked_mul(step_duration)?,
         )?;
-        Some(Duration::from_secs(
-            next_time.saturating_sub(unix_now().as_secs()),
+        // Some(Duration::from_secs(
+        //     next_time.saturating_sub(unix_now().as_secs()),
+        // ))
+        // step_duration_ in milli second
+        Some(Duration::from_millis(
+            next_time.saturating_sub(unix_now().as_millis() as u64),
         ))
     }
 
@@ -362,7 +368,9 @@ impl Step {
 
     /// Calibrates the AuRa step number according to the current time.
     fn opt_calibrate(&self) -> Option<()> {
-        let now = unix_now().as_secs();
+        // step_duration
+        let now = unix_now().as_millis() as u64;
+        //  let now = unix_now().as_secs();
         let StepDurationInfo {
             transition_step,
             transition_timestamp,
@@ -395,7 +403,7 @@ impl Step {
         // reject blocks too far in the future
         if given > current + REJECTED_STEP_DRIFT {
             Err(None)
-        // wait a bit for blocks in near future
+            // wait a bit for blocks in near future
         } else if given > current {
             let d = self
                 .durations
@@ -764,7 +772,7 @@ impl super::EpochVerifier<EthereumMachine> for EpochVerifier {
                     &self.subchain_validators,
                     self.empty_steps_transition,
                 )
-                .ok()?;
+                    .ok()?;
 
                 let mut signers = match header {
                     Some(header) => {
@@ -820,10 +828,10 @@ fn header_expected_seal_fields(header: &Header, empty_steps_transition: u64) -> 
 
 fn header_step(header: &Header, empty_steps_transition: u64) -> Result<u64, ::rlp::DecoderError> {
     Rlp::new(&header.seal().get(0).unwrap_or_else(||
-		panic!("was either checked with verify_block_basic or is genesis; has {} fields; qed (Make sure the spec \
+        panic!("was either checked with verify_block_basic or is genesis; has {} fields; qed (Make sure the spec \
             file has a correct genesis seal)", header_expected_seal_fields(header, empty_steps_transition))
-	))
-	.as_val()
+    ))
+        .as_val()
 }
 
 fn header_signature(
@@ -836,8 +844,8 @@ fn header_signature(
             header_expected_seal_fields(header, empty_steps_transition)
         )
     }))
-    .as_val::<H520>()
-    .map(Into::into)
+        .as_val::<H520>()
+        .map(Into::into)
 }
 
 // extracts the raw empty steps vec from the header seal. should only be called when there are 3 fields in the seal
@@ -973,7 +981,15 @@ impl AsMillis for Duration {
         self.as_secs() * 1_000 + (self.subsec_nanos() / 1_000_000) as u64
     }
 }
+trait AsMicros {
+    fn as_micros(&self) -> u64;
+}
 
+impl AsMicros for Duration {
+    fn as_micros(&self) -> u64 {
+        self.as_secs() * 1_000_000 + (self.subsec_nanos() / 1_000) as u64
+    }
+}
 // A type for storing owned or borrowed data that has a common type.
 // Useful for returning either a borrow or owned data from a function.
 enum CowLike<'a, A: 'a + ?Sized, B> {
@@ -982,8 +998,8 @@ enum CowLike<'a, A: 'a + ?Sized, B> {
 }
 
 impl<'a, A: ?Sized, B> Deref for CowLike<'a, A, B>
-where
-    B: AsRef<A>,
+    where
+        B: AsRef<A>,
 {
     type Target = A;
     fn deref(&self) -> &A {
@@ -1269,24 +1285,24 @@ impl AuthorityRound {
 
             let epoch_transition_hash = epoch_manager.epoch_transition_hash;
             let ancestry_iter = ancestry.map(|header| {
-				let mut signers = vec![*header.author()];
-				signers.extend(parent_empty_steps_signers.drain(..));
+                let mut signers = vec![*header.author()];
+                signers.extend(parent_empty_steps_signers.drain(..));
 
-				if let Ok(empty_step_signers) = header_empty_steps_signers(&header, self.empty_steps_transition) {
-					let res = (header.hash(), header.number(), signers);
-					trace!(target: "finality", "Ancestry iteration: yielding {:?}", res);
+                if let Ok(empty_step_signers) = header_empty_steps_signers(&header, self.empty_steps_transition) {
+                    let res = (header.hash(), header.number(), signers);
+                    trace!(target: "finality", "Ancestry iteration: yielding {:?}", res);
 
-					parent_empty_steps_signers = empty_step_signers;
+                    parent_empty_steps_signers = empty_step_signers;
 
-					Some(res)
+                    Some(res)
 
-				} else {
-					warn!(target: "finality", "Failed to get empty step signatures from block {}", header.hash());
-					None
-				}
-			})
-				.while_some()
-				.take_while(|&(h, _, _)| h != epoch_transition_hash);
+                } else {
+                    warn!(target: "finality", "Failed to get empty step signatures from block {}", header.hash());
+                    None
+                }
+            })
+                .while_some()
+                .take_while(|&(h, _, _)| h != epoch_transition_hash);
 
             if let Err(e) = epoch_manager
                 .finality_checker
@@ -1356,8 +1372,8 @@ impl AuthorityRound {
         &self,
         opt_error_msg: T,
     ) -> Result<Arc<dyn EngineClient>, EngineError>
-    where
-        T: Into<Option<&'a str>>,
+        where
+            T: Into<Option<&'a str>>,
     {
         self.client
             .read()
@@ -1423,8 +1439,8 @@ impl AuthorityRound {
         // Genesis is never a new block, but might as well check.
         let first = block.header.number() == 0;
         for (addr, data) in
-            self.validators
-                .generate_engine_transactions(first, &block.header, &mut call)?
+        self.validators
+            .generate_engine_transactions(first, &block.header, &mut call)?
         {
             transactions.push(make_transaction(addr, data)?);
         }
@@ -1448,30 +1464,53 @@ const ENGINE_TIMEOUT_TOKEN: TimerToken = 23;
 
 impl IoHandler<()> for TransitionHandler {
     fn initialize(&self, io: &IoContext<()>) {
-        let remaining = AsMillis::as_millis(&self.step.inner.duration_remaining());
-        io.register_timer_once(ENGINE_TIMEOUT_TOKEN, Duration::from_millis(remaining))
+        // let remaining = AsMillis::as_millis(&self.step.inner.duration_remaining());
+        // io.register_timer_once(ENGINE_TIMEOUT_TOKEN, Duration::from_millis(remaining))
+        //     .unwrap_or_else(
+        //         |e| warn!(target: "engine", "Failed to start consensus step timer: {}.", e),
+        //     )
+        // step_duration_
+        let remaining = AsMicros::as_micros(&self.step.inner.duration_remaining());
+        io.register_timer_once(ENGINE_TIMEOUT_TOKEN, Duration::from_micros(remaining))
             .unwrap_or_else(
                 |e| warn!(target: "engine", "Failed to start consensus step timer: {}.", e),
             )
     }
 
     fn timeout(&self, io: &IoContext<()>, timer: TimerToken) {
+
+        trace!(target:"auhtority round", "entering timeout");
         if timer == ENGINE_TIMEOUT_TOKEN {
             // NOTE we might be lagging by couple of steps in case the timeout
             // has not been called fast enough.
             // Make sure to advance up to the actual step.
-            while AsMillis::as_millis(&self.step.inner.duration_remaining()) == 0 {
+            // step_duration_
+            //    while AsMillis::as_millis(&self.step.inner.duration_remaining()) == 0 {
+            while AsMicros::as_micros(&self.step.inner.duration_remaining()) == 0 {
                 self.step.inner.increment();
                 self.step.can_propose.store(true, AtomicOrdering::SeqCst);
                 if let Some(ref weak) = *self.client.read() {
                     if let Some(c) = weak.upgrade() {
+                        debug!(target:"time", "timeout, current time is {:?}", SystemTime::now());
                         c.update_sealing(ForceUpdateSealing::No);
                     }
                 }
             }
+            let step = self.step.inner.load();
+            //Shard To-do need to modify it to the beginning of each round
+            // if step.rem_euclid(AggProof::shard_count()) ==0 {
+            //     if step != AggProof::get_last_commit_round(){
+            //         AggProof::commit(AggProof::get_shard(),0u64);
+            //         AggProof::set_last_commit_shard(step);
+            //     }
+            // }
 
-            let next_run_at = Duration::from_millis(
-                AsMillis::as_millis(&self.step.inner.duration_remaining()) >> 2,
+            // let next_run_at = Duration::from_millis(
+            //     AsMillis::as_millis(&self.step.inner.duration_remaining()) >> 2,
+            // );
+            // step_duration_
+            let next_run_at = Duration::from_micros(
+                AsMicros::as_micros(&self.step.inner.duration_remaining()) >> 2,
             );
             io.register_timer_once(ENGINE_TIMEOUT_TOKEN, next_run_at)
                 .unwrap_or_else(
@@ -1497,6 +1536,7 @@ impl Engine<EthereumMachine> for AuthorityRound {
     }
 
     fn step(&self) {
+        trace!(target:"auhtority round", "entering step function");
         self.step.inner.increment();
         self.step.can_propose.store(true, AtomicOrdering::SeqCst);
         if let Ok(c) = self.upgrade_client_or(None) {
@@ -1620,6 +1660,7 @@ impl Engine<EthereumMachine> for AuthorityRound {
         let our_addr = match *self.signer.read() {
             Some(ref signer) => signer.address(),
             None => {
+                debug!(target:"time", "return 2, not good");
                 warn!(target: "engine", "Not preparing block; cannot sign.");
                 return SealingState::NotReady;
             }
@@ -1627,13 +1668,16 @@ impl Engine<EthereumMachine> for AuthorityRound {
 
         let client = match self.upgrade_client_or("Not preparing block") {
             Ok(client) => client,
-            Err(_) => return SealingState::NotReady,
+            Err(_) => {
+                debug!(target:"time", "return 3, not good");
+                return SealingState::NotReady},
         };
 
         let parent = match client.as_full_client() {
             Some(full_client) => full_client.best_block_header(),
             None => {
                 debug!(target: "engine", "Not preparing block: not a full client.");
+                debug!(target:"time", "return 4, not good");
                 return SealingState::NotReady;
             }
         };
@@ -1649,19 +1693,31 @@ impl Engine<EthereumMachine> for AuthorityRound {
                 parent.hash(),
             ) {
                 debug!(target: "engine", "Not preparing block: Unable to zoom to epoch.");
+                debug!(target:"time", "return 5, not good");
                 return SealingState::NotReady;
             }
             CowLike::Owned(epoch_manager.validators().clone())
         };
 
         let step = self.step.inner.load();
+        //Shard To-do need to modify it to the beginning of each round
+        // if step.rem_euclid(AggProof::shard_count()) ==0 {
+        //     if step != AggProof::get_last_commit_round(){
+        //         AggProof::commit(AggProof::get_shard(),0u64);
+        //         AggProof::set_last_commit_shard(step);
+        //     }
+        // }
+        debug!(target:"time", "step is {} at time {:?}", step,SystemTime::now());
 
         if !is_step_proposer(&*validators, &parent.hash(), step, &our_addr) {
             trace!(target: "engine", "Not preparing block: not a proposer for step {}. (Our address: {})",
                step, our_addr);
             return SealingState::NotReady;
         }
+        debug!(target: "txn", "Preparing block: we are the proposer for step {}. (Our address: {})",
+               step, our_addr);
 
+        debug!(target:"time", "prepareing block we are the proposer, current time is {:?}", SystemTime::now());
         SealingState::Ready
     }
 
@@ -2213,9 +2269,9 @@ impl Engine<EthereumMachine> for AuthorityRound {
                         }
                     })
                 })
-                .while_some()
-                .take_while(|h| h.hash() != *finalized_hash)
-                .collect();
+                    .while_some()
+                    .take_while(|h| h.hash() != *finalized_hash)
+                    .collect();
 
                 let finalized_header = if *finalized_hash == chain_head.hash() {
                     // chain closure only stores ancestry, but the chain head is also unfinalized.
@@ -2421,8 +2477,8 @@ mod tests {
     };
 
     fn aura<F>(f: F) -> Arc<AuthorityRound>
-    where
-        F: FnOnce(&mut AuthorityRoundParams),
+        where
+            F: FnOnce(&mut AuthorityRoundParams),
     {
         let mut params = AuthorityRoundParams {
             step_durations: [(0, 1)].to_vec().into_iter().collect(),
@@ -2520,7 +2576,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let b1 = b1.close_and_lock().unwrap();
 
         engine.set_signer(Some(Box::new((tap.clone(), addr1, "1".into()))));
@@ -2557,9 +2613,9 @@ mod tests {
             false,
             None,
         )
-        .unwrap()
-        .close_and_lock()
-        .unwrap();
+            .unwrap()
+            .close_and_lock()
+            .unwrap();
         // Not a signer. A seal cannot be generated.
         assert!(engine.generate_seal(&b1, &genesis_header) == Seal::None);
         // Become a signer.
@@ -2596,9 +2652,9 @@ mod tests {
             false,
             None,
         )
-        .unwrap()
-        .close_and_lock()
-        .unwrap();
+            .unwrap()
+            .close_and_lock()
+            .unwrap();
         // Not a signer. A seal cannot be generated.
         assert!(engine.generate_seal(&b2, &header2) == Seal::None);
         // Become a signer once more.
@@ -2643,7 +2699,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let b1 = b1.close_and_lock().unwrap();
         let b2 = OpenBlock::new(
             engine,
@@ -2658,7 +2714,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let b2 = b2.close_and_lock().unwrap();
 
         engine.set_signer(Some(Box::new((tap.clone(), addr1, "1".into()))));
@@ -2857,9 +2913,9 @@ mod tests {
                 transition_timestamp: 0,
                 step_duration: 1,
             }]
-            .to_vec()
-            .into_iter()
-            .collect(),
+                .to_vec()
+                .into_iter()
+                .collect(),
         };
         step.increment();
     }
@@ -2876,9 +2932,9 @@ mod tests {
                 transition_timestamp: 0,
                 step_duration: 1,
             }]
-            .to_vec()
-            .into_iter()
-            .collect(),
+                .to_vec()
+                .into_iter()
+                .collect(),
         };
         step.duration_remaining();
     }
@@ -2909,9 +2965,9 @@ mod tests {
                     step_duration: 4,
                 },
             ]
-            .to_vec()
-            .into_iter()
-            .collect(),
+                .to_vec()
+                .into_iter()
+                .collect(),
         };
         // calibrated step `now`
         step.calibrate();
@@ -3026,7 +3082,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let b1 = b1.close_and_lock().unwrap();
 
         // the block is empty so we don't seal and instead broadcast an empty step message
@@ -3081,7 +3137,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let b1 = b1.close_and_lock().unwrap();
 
         // since the block is empty it isn't sealed and we generate empty steps
@@ -3103,7 +3159,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         b2.push_transaction(
             TypedTransaction::Legacy(Transaction {
                 action: Action::Create,
@@ -3113,10 +3169,10 @@ mod tests {
                 value: U256::from(1),
                 data: vec![],
             })
-            .fake_sign(addr2),
+                .fake_sign(addr2),
             None,
         )
-        .unwrap();
+            .unwrap();
         let b2 = b2.close_and_lock().unwrap();
 
         // we will now seal a block with 1tx and include the accumulated empty step message
@@ -3171,7 +3227,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let b1 = b1.close_and_lock().unwrap();
 
         // since the block is empty it isn't sealed and we generate empty steps
@@ -3193,7 +3249,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let b2 = b2.close_and_lock().unwrap();
         engine.set_signer(Some(Box::new((tap.clone(), addr2, "0".into()))));
         assert_eq!(engine.generate_seal(&b2, &genesis_header), Seal::None);
@@ -3214,7 +3270,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let b3 = b3.close_and_lock().unwrap();
 
         engine.set_signer(Some(Box::new((tap.clone(), addr1, "1".into()))));
@@ -3264,7 +3320,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let b1 = b1.close_and_lock().unwrap();
 
         // since the block is empty it isn't sealed and we generate empty steps
@@ -3287,7 +3343,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let addr1_balance = b2.state.balance(&addr1).unwrap();
 
         // after closing the block `addr1` should be reward twice, one for the included empty step message and another for block creation
@@ -3403,7 +3459,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let b1 = b1.close_and_lock().unwrap();
 
         // since the block is empty it isn't sealed and we generate empty steps
@@ -3426,7 +3482,7 @@ mod tests {
             false,
             None,
         )
-        .unwrap();
+            .unwrap();
         let addr1_balance = b2.state.balance(&addr1).unwrap();
 
         // after closing the block `addr1` should be reward twice, one for the included empty step
@@ -3676,29 +3732,29 @@ mod tests {
         let deserialized: ethjson::spec::AuthorityRound = serde_json::from_str(config).unwrap();
         let params = AuthorityRoundParams::from(deserialized.params);
         for ((block_num1, address1), (block_num2, address2)) in
-            params.block_reward_contract_transitions.iter().zip(
-                [
-                    (
-                        0u64,
-                        BlockRewardContract::new_from_address(
-                            Address::from_str("2000000000000000000000000000000000000002").unwrap(),
-                        ),
+        params.block_reward_contract_transitions.iter().zip(
+            [
+                (
+                    0u64,
+                    BlockRewardContract::new_from_address(
+                        Address::from_str("2000000000000000000000000000000000000002").unwrap(),
                     ),
-                    (
-                        7u64,
-                        BlockRewardContract::new_from_address(
-                            Address::from_str("3000000000000000000000000000000000000003").unwrap(),
-                        ),
+                ),
+                (
+                    7u64,
+                    BlockRewardContract::new_from_address(
+                        Address::from_str("3000000000000000000000000000000000000003").unwrap(),
                     ),
-                    (
-                        42u64,
-                        BlockRewardContract::new_from_address(
-                            Address::from_str("4000000000000000000000000000000000000004").unwrap(),
-                        ),
+                ),
+                (
+                    42u64,
+                    BlockRewardContract::new_from_address(
+                        Address::from_str("4000000000000000000000000000000000000004").unwrap(),
                     ),
-                ]
+                ),
+            ]
                 .iter(),
-            )
+        )
         {
             assert_eq!(block_num1, block_num2);
             assert_eq!(address1, address2);
@@ -3707,7 +3763,7 @@ mod tests {
 
     #[test]
     #[should_panic(
-        expected = "blockRewardContractTransition should be less than any of the keys in blockRewardContractTransitions"
+    expected = "blockRewardContractTransition should be less than any of the keys in blockRewardContractTransitions"
     )]
     fn should_reject_out_of_order_block_reward_transition() {
         let config = r#"{
