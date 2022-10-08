@@ -31,7 +31,7 @@ async function demo(res) {keys = res;
 	let len = keys.length;
 	console.log(len);
 	const batch = 4000;
-	for (let i = 0; i < batch; i++) {
+	for (let i = 4*batch; i < 5*batch; i++) {
 		
 		const _value = 10000000
 
@@ -64,7 +64,7 @@ async function demo(res) {keys = res;
 		   console.log(`Tx successfull with hash: ${createReceipt.transactionHash}`);
 		};
 		erc20_1tx();
-		// if (i === 4001) {await sleep(500)} ;
+		// await sleep(1);
 
 
 	}
