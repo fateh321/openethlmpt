@@ -30,8 +30,8 @@ async function demo(res) {keys = res;
 	console.log("fuck you");
 	let len = keys.length;
 	console.log(len);
-	const batch = 8000;
-	for (let i = 2*batch; i < 3*batch; i++) {
+	const batch = 4000;
+	for (let i = 3*batch; i < 4*batch; i++) {
 		const _value = 10000000
 
 		// Initialization
