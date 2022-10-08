@@ -30,7 +30,7 @@ async function demo(res) {keys = res;
 	console.log("fuck you");
 	let len = keys.length;
 	console.log(len);
-	const batch = 8000;
+	const batch = 4000;
 	for (let i = 0; i < batch; i++) {
 		const _value = 10000000
 
