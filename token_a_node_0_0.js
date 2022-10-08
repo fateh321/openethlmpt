@@ -30,7 +30,7 @@ async function demo(res) {keys = res;
 	console.log("fuck you");
 	let len = keys.length;
 	console.log(len);
-	const batch = 32000;
+	const batch = 4002;
 	for (let i = 0; i < batch; i++) {
 		const _value = 10000000
 
@@ -57,22 +57,27 @@ async function demo(res) {keys = res;
 		      },
 		      privKey
 		   );
-		const createReceipt = await web3.eth.sendSignedTransaction(
+		// const createReceipt = await web3.eth.sendSignedTransaction(
+		//       createTransaction.rawTransaction
+		//    );
+		web3.eth.sendSignedTransaction(
 		      createTransaction.rawTransaction
 		   );
-		   console.log(`Tx successfull with hash: ${createReceipt.transactionHash}`);
+		   // console.log(`Tx successfull with hash: ${createReceipt.transactionHash}`);
 		};
+		try{
 		erc20_1tx();
-		if (i % 256 == 0) {await sleep(1)} ;
+		}catch(e){
+
+		}
+		// if (i % 4000 == 0) {await sleep(100)} ;
 		// await sleep(1) ;
 
 	}
 
 
 	}
-queryParameter().then((res)=> demo(res)
-	
-)
+queryParameter().then((res)=> demo(res))
 
 
 
