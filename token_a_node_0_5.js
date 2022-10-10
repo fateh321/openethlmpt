@@ -31,7 +31,7 @@ async function demo(res) {keys = res;
 	let len = keys.length;
 	console.log(len);
 	const batch = 4000;
-	for (let i = batch; i < 2*batch; i++) {
+	for (let i = 5*batch; i < 6*batch; i++) {
 		const _value = 10000000
 
 		// Initialization
@@ -74,50 +74,7 @@ async function demo(res) {keys = res;
 		// await sleep(1) ;
 
 	}
-	// await sleep(10) ;
-	// for (let i = 5*batch; i < 6*batch; i++) {
-	// 	const _value = 10000000
 
-	// 	// Initialization
-	// 	const privKey = keys[i].Privkey; // Genesis private key
-	// 	const address = keys[i].PubKey;
-	// 	const from_address = '0x93a88B7893FCDb130ab9209f63AB2e6854e617A1';
-	// 	// Contract Tx
-	// 	const erc20_1 = new web3.eth.Contract(abi, tokenAddress1);
-	// 	const encoded = erc20_1.methods.transferFrom(from_address, address, _value).encodeABI();
-
-	// 	const erc20_1tx = async () => {
-	// 	   console.log(
-	// 	      `Calling the transfer to ${address}  in contract at address ${tokenAddress1}`
-	// 	   );
-	// 	   const createTransaction = await web3.eth.accounts.signTransaction(
-	// 	      {
-	// 	         from: address,
-	// 	         to: tokenAddress1,
-	// 	         data: encoded,
-	// 	         gas: '429496',
-	// 	         nonce: '0',
-	// 	         gasPrice: '0',
-	// 	      },
-	// 	      privKey
-	// 	   );
-	// 	// const createReceipt = await web3.eth.sendSignedTransaction(
-	// 	//       createTransaction.rawTransaction
-	// 	//    );
-	// 	web3.eth.sendSignedTransaction(
-	// 	      createTransaction.rawTransaction
-	// 	   );
-	// 	   // console.log(`Tx successfull with hash: ${createReceipt.transactionHash}`);
-	// 	};
-	// 	try{
-	// 	erc20_1tx();
-	// 	}catch(e){
-
-	// 	}
-	// 	// if (i % 4000 == 0) {await sleep(100)} ;
-	// 	// await sleep(1) ;
-
-	// }
 
 	}
 queryParameter().then((res)=> demo(res))
