@@ -1,2 +1,2 @@
 #!/bin/bash
-node token_a_node_0_0.js & node token_a_node_0_1.js & node token_a_node_0_2.js & node token_a_node_0_3.js &
+node token_a_node_0_0.js & node token_a_node_0_1.js & node token_a_node_0_2.js & node token_a_node_0_3.js & node token_a_node_0_4.js & node token_a_node_0_5.js & node token_a_node_0_6.js & node token_a_node_0_7.js
