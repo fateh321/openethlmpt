@@ -75,7 +75,7 @@ async function demo(res) {keys = res;
 
 	}
 
-	await sleep(100) ;
+	await sleep(10) ;
 
 	for (let i = batch; i < 2*batch; i++) {
 		const _value = 10000000
@@ -121,7 +121,7 @@ async function demo(res) {keys = res;
 
 	}
 
-await sleep(100) ;
+await sleep(10) ;
 
 	for (let i = 2*batch; i < 3*batch; i++) {
 		const _value = 10000000
@@ -166,7 +166,7 @@ await sleep(100) ;
 		// await sleep(1) ;
 
 	}
-	await sleep(100) ;
+	await sleep(10) ;
 
 	for (let i = 3*batch; i < 4*batch; i++) {
 		const _value = 10000000
