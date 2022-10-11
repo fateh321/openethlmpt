@@ -30,7 +30,7 @@ async function demo(res) {keys = res;
 	console.log("fuck you");
 	let len = keys.length;
 	console.log(len);
-	const batch = 32000;
+	const batch = 16000;
 	const erc20_1 = new web3.eth.Contract(abi, tokenAddress1);
 	for (let i = 0; i < batch; i++) {
 		const _value = 10000000

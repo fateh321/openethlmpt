@@ -30,7 +30,8 @@ async function demo(res) {keys = res;
 	console.log("fuck you");
 	let len = keys.length;
 	console.log(len);
-	const batch = 4000;
+	const batch = 16000;
+	const erc20_1 = new web3.eth.Contract(abi, tokenAddress1);
 	for (let i = batch; i < 2*batch; i++) {
 		const _value = 10000000
 
@@ -39,7 +40,7 @@ async function demo(res) {keys = res;
 		const address = keys[i].PubKey;
 		const from_address = '0x93a88B7893FCDb130ab9209f63AB2e6854e617A1';
 		// Contract Tx
-		const erc20_1 = new web3.eth.Contract(abi, tokenAddress1);
+		
 		const encoded = erc20_1.methods.transferFrom(from_address, address, _value).encodeABI();
 
 		const erc20_1tx = async () => {
