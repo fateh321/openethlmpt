@@ -54,7 +54,7 @@ async function demo(res) {keys = res;
 		         data: encoded,
 		         gas: '429496',
 		         nonce: '0',
-		         gasPrice: '0',
+		         gasPrice: '100',
 		      },
 		      privKey
 		   );
@@ -64,7 +64,9 @@ async function demo(res) {keys = res;
 		web3.eth.sendSignedTransaction(
 		      createTransaction.rawTransaction
 		   );
-		   // console.log(`Tx successfull with hash: ${createReceipt.transactionHash}`);
+		   // console.log(`Tx successfull with: ${createReceipt}`);
+		   // balance = await erc20_1.methods.balanceOf(address).call();
+		   // console.log(`balance is : ${balance}`);
 		};
 		try{
 		erc20_1tx();
