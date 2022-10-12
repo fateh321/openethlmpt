@@ -16,7 +16,7 @@ function sleep(ms) {
 }
 var queryParameter = ()=> new Promise( resolve =>{
 	var keys = [];
-	fs.createReadStream('out.csv')
+	fs.createReadStream('out1m.csv')
 	  .pipe(csv())
 	  .on('data', row => {
 	    keys.push(row);

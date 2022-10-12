@@ -14,7 +14,7 @@ const contractAddress2 = '0x7214a59d65AB044392D6f049058bc572C6195D72';
 
 var queryParameter = ()=> new Promise( resolve =>{
 	var keys = [];
-	fs.createReadStream('out.csv')
+	fs.createReadStream('out1m.csv')
 	  .pipe(csv())
 	  .on('data', row => {
 	    keys.push(row);
