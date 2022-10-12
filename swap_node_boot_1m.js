@@ -27,8 +27,10 @@ var queryParameter = ()=> new Promise( resolve =>{
       })
 })
 var keys = [];
-queryParameter().then((res)=>
-	{keys = res;
+
+
+	async function demo(res) {
+	keys = res;
 	console.log("fuck you");
 	let len = keys.length;
 	console.log(len);
@@ -152,6 +154,7 @@ await sleep(4) ;
 	}
 
 	}
-)
+
+	queryParameter().then((res)=> demo(res))
 
 
