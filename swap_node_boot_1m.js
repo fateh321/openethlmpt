@@ -11,7 +11,9 @@ const tokenAddress2 = '0xdDa66C80C54c37d65B960AC8dFd2F0fDD2449B38';
 
 const contractAddress1 = '0x5bc532C8910EA2934a92A22d5dF3c868C91C9631';
 const contractAddress2 = '0x7214a59d65AB044392D6f049058bc572C6195D72';
-
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 var queryParameter = ()=> new Promise( resolve =>{
 	var keys = [];
 	fs.createReadStream('out.csv')
