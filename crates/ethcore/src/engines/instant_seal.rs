@@ -18,6 +18,7 @@ use block::ExecutedBlock;
 use engines::{Engine, Seal, SealingState};
 use machine::Machine;
 use std::sync::atomic::{AtomicU64, Ordering};
+use std::time::Instant;
 use types::header::{ExtendedHeader, Header};
 
 /// `InstantSeal` params.
@@ -86,7 +87,7 @@ impl<M: Machine> Engine<M> for InstantSeal<M> {
                 self.txc.fetch_add(1, Ordering::SeqCst);
                 // warn!(target: "own_tx", "txc {}", self.txc.load(Ordering::SeqCst));
             }
-            warn!(target: "own_tx", "tx_len {} txc {}", block.transactions.len(), self.txc.load(Ordering::SeqCst));
+            warn!(target: "own_tx", "tx_len {} txc {} time {:?}", block.transactions.len(), self.txc.load(Ordering::SeqCst), Instant::now());
             let block_number = block.header.number();
             let last_sealed_block = self.last_sealed_block.load(Ordering::SeqCst);
             // Return a regular seal if the given block is _higher_ than
