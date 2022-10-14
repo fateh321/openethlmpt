@@ -6,7 +6,7 @@ from eth_account import Account
 from web3 import Web3
 
 num = 500000
-FILE_NAME = "genesis_secrets_3.txt"
+FILE_NAME = "genesis_secrets_0-5.txt"
 # Script to generate random secret keys
 with open(FILE_NAME, "w") as f:
     for _ in range(num):
@@ -29,6 +29,7 @@ for priv_key in open(genesis_secrets[1:-1], "r").readlines():
     balance_string += f'"{converted_addr}": {{ "balance": "100000000000000000" }}'
     # print("\"%s\": { \"balance\": \"100000000000000000\"}," % converted_addr)
     account_i += 1
+    print(account_i)
     if account_i == num:
         break
     else:
