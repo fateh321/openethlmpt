@@ -31,7 +31,7 @@ async function demo(res) {keys = res;
 	let len = keys.length;
 	console.log(len);
 	const batch = 500000;
-	const erc20_1 = new web3.eth.Contract(abi, tokenAddress1);
+	const erc20_1 = new web3.eth.Contract(abi, tokenAddress2);
 	for (let i = 0; i < batch; i++) {
 		const _value = 10000000
 
@@ -50,7 +50,7 @@ async function demo(res) {keys = res;
 		   const createTransaction = await web3.eth.accounts.signTransaction(
 		      {
 		         from: address,
-		         to: tokenAddress1,
+		         to: tokenAddress2,
 		         data: encoded,
 		         gas: '429496',
 		         nonce: '1',
