@@ -33,7 +33,7 @@ queryParameter().then((res)=>
 	batch = 450000;
 	const router1 = new web3.eth.Contract(abi, contractAddress1);
 	const router2 = new web3.eth.Contract(abi, contractAddress2);
-	for (let i = batch; i < batch+10000; i++) {
+	for (let i = batch; i < batch+16000; i++) {
 
 		// random_1 = Math.floor(Math.random() * 2); 
 		random_1 = i;
@@ -85,6 +85,8 @@ queryParameter().then((res)=>
 		         to: contractAddress,
 		         data: encoded,
 		         gas: '429496',
+		         nonce: '2',
+		         gasPrice: '100',
 		      },
 		      privKey
 		   );
@@ -139,6 +141,8 @@ queryParameter().then((res)=>
 		         to: contractAddress,
 		         data: encoded,
 		         gas: '429496',
+		         nonce: '2',
+		         gasPrice: '100',
 		      },
 		      privKey
 		   );
