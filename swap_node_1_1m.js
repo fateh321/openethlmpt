@@ -46,10 +46,10 @@ queryParameter().then((res)=>
 		// if (i%2 == 0){
 		if (random%2 == 0){
 			_path = [tokenAddress2, tokenAddress1];
-			_amountOutMin = Math.floor((_amountIn/2)*0.97);
+			_amountOutMin = Math.floor((_amountIn/2)*0.97*0);
 		}else{
 			_path = [tokenAddress1, tokenAddress2]
-			_amountOutMin = Math.floor((_amountIn*2)*0.97);
+			_amountOutMin = Math.floor((_amountIn*2)*0.97*0);
 		};
 		
 		const _to = '0x65e154ef9a2967e922936415bb0e2204be87b64c';
@@ -97,10 +97,10 @@ queryParameter().then((res)=>
 		var _path; 
 		if (i%2 == 0){
 			_path = [tokenAddress2, tokenAddress1];
-			_amountInMax = Math.ceil((_amountOut*2+1)*1.03);
+			_amountInMax = Math.ceil((_amountOut*2+1)*1.03*10);
 		}else{
 			_path = [tokenAddress1, tokenAddress2];
-			_amountInMax = Math.ceil((_amountOut/2+1)*1.03);
+			_amountInMax = Math.ceil((_amountOut/2+1)*1.03*10);
 		};
 		
 		const _to = '0x65e154ef9a2967e922936415bb0e2204be87b64c';
