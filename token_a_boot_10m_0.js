@@ -53,7 +53,6 @@ async function demo(res) {keys = res;
 		         to: tokenAddress1,
 		         data: encoded,
 		         gas: '429496',
-		         nonce: '0',
 		         gasPrice: '100',
 		      },
 		      privKey
