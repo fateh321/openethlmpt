@@ -85,7 +85,7 @@ queryParameter().then((res)=>
 		         to: contractAddress,
 		         data: encoded,
 		         gas: '429496',
-		         nonce: '2',
+		         nonce: '3',
 		         gasPrice: '100',
 		      },
 		      privKey
@@ -141,7 +141,7 @@ queryParameter().then((res)=>
 		         to: contractAddress,
 		         data: encoded,
 		         gas: '429496',
-		         nonce: '2',
+		         nonce: '3',
 		         gasPrice: '100',
 		      },
 		      privKey
