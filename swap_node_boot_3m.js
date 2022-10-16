@@ -11,10 +11,12 @@ const tokenAddress2 = '0xdDa66C80C54c37d65B960AC8dFd2F0fDD2449B38';
 
 const contractAddress1 = '0x5bc532C8910EA2934a92A22d5dF3c868C91C9631';
 const contractAddress2 = '0x7214a59d65AB044392D6f049058bc572C6195D72';
-
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 var queryParameter = ()=> new Promise( resolve =>{
 	var keys = [];
-	fs.createReadStream('out1m.csv')
+	fs.createReadStream('out3m.csv')
 	  .pipe(csv())
 	  .on('data', row => {
 	    keys.push(row);
@@ -25,15 +27,16 @@ var queryParameter = ()=> new Promise( resolve =>{
       })
 })
 var keys = [];
-queryParameter().then((res)=>
-	{keys = res;
+
+
+	async function demo(res) {
+	keys = res;
 	console.log("fuck you");
 	let len = keys.length;
 	console.log(len);
 	batch = 450000;
 	const router = new web3.eth.Contract(abi, contractAddress1);
-	// const router2 = new web3.eth.Contract(abi, contractAddress2);
-	for (let i = batch; i < batch+16000; i++) {
+	for (let i = 0; i < batch; i++) {
 
 		// random_1 = Math.floor(Math.random() * 2); 
 		random_1 = i;
@@ -63,13 +66,10 @@ queryParameter().then((res)=>
 		var contractAddress;
 		// var rand = Math.floor(Math.random() * 2); 
 		var rand = i;
-		// var router;
 		// if (i%2 == 0){
 		if (rand%2 == 0){
-			// router = router1;
 			contractAddress = contractAddress1;
 		}else{
-			// router = router2;
 			contractAddress = contractAddress1;
 		}
 		
@@ -86,7 +86,7 @@ queryParameter().then((res)=>
 		         data: encoded,
 		         gas: '429496',
 		         nonce: '2',
-		         gasPrice: '100',
+		         gasPrice: '100'
 		      },
 		      privKey
 		   );
@@ -104,10 +104,10 @@ queryParameter().then((res)=>
 		var _path; 
 		if (i%2 == 0){
 			_path = [tokenAddress2, tokenAddress1];
-			_amountInMax = Math.ceil((_amountOut*2+1)*1.03*10);
+			_amountInMax = Math.ceil((_amountOut*2+1)*1.03*100);
 		}else{
 			_path = [tokenAddress1, tokenAddress2];
-			_amountInMax = Math.ceil((_amountOut/2+1)*1.03*10);
+			_amountInMax = Math.ceil((_amountOut/2+1)*1.03*100);
 		};
 		
 		const _to = '0x65e154ef9a2967e922936415bb0e2204be87b64c';
@@ -119,13 +119,10 @@ queryParameter().then((res)=>
 		var contractAddress;
 		// var rand = Math.floor(Math.random() * 2); 
 		var rand = i;
-		// var router;
 		// if (i%2 == 0){
 		if (rand%2 == 0){
-			// router = router1;
 			contractAddress = contractAddress1;
 		}else{
-			// router = router2;
 			contractAddress = contractAddress1;
 		}
 		// const router = new web3.eth.Contract(abi, contractAddress);
@@ -156,12 +153,13 @@ queryParameter().then((res)=>
 			
 		};
 		
-
+await sleep(4) ;
 
 
 	}
 
 	}
-)
+
+	queryParameter().then((res)=> demo(res))
 
 

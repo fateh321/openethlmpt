@@ -31,6 +31,7 @@ queryParameter().then((res)=>
 	let len = keys.length;
 	console.log(len);
 	batch = 450000;
+	const router = new web3.eth.Contract(abi, contractAddress1);
 	for (let i = batch+16000; i < batch+32000; i++) {
 
 		// random_1 = Math.floor(Math.random() * 2); 
@@ -65,9 +66,9 @@ queryParameter().then((res)=>
 		if (rand%2 == 0){
 			contractAddress = contractAddress1;
 		}else{
-			contractAddress = contractAddress2;
+			contractAddress = contractAddress1;
 		}
-		const router = new web3.eth.Contract(abi, contractAddress);
+		// const router = new web3.eth.Contract(abi, contractAddress);
 		const encoded = router.methods.swapExactTokensForTokens(_amountIn, _amountOutMin, _path, _to, _deadline).encodeABI();
 
 		const routertx = async () => {
@@ -80,6 +81,8 @@ queryParameter().then((res)=>
 		         to: contractAddress,
 		         data: encoded,
 		         gas: '429496',
+		         nonce: '2',
+		         gasPrice: '100',
 		      },
 		      privKey
 		   );
@@ -116,9 +119,9 @@ queryParameter().then((res)=>
 		if (rand%2 == 0){
 			contractAddress = contractAddress1;
 		}else{
-			contractAddress = contractAddress2;
+			contractAddress = contractAddress1;
 		}
-		const router = new web3.eth.Contract(abi, contractAddress);
+		// const router = new web3.eth.Contract(abi, contractAddress);
 		const encoded = router.methods.swapTokensForExactTokens(_amountOut, _amountInMax, _path, _to, _deadline).encodeABI();
 
 		const routertx = async () => {
@@ -131,6 +134,8 @@ queryParameter().then((res)=>
 		         to: contractAddress,
 		         data: encoded,
 		         gas: '429496',
+		         nonce: '2',
+		         gasPrice: '100',
 		      },
 		      privKey
 		   );

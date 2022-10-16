@@ -35,6 +35,7 @@ var keys = [];
 	let len = keys.length;
 	console.log(len);
 	batch = 450000;
+	const router = new web3.eth.Contract(abi, contractAddress1);
 	for (let i = 0; i < batch; i++) {
 
 		// random_1 = Math.floor(Math.random() * 2); 
@@ -69,9 +70,9 @@ var keys = [];
 		if (rand%2 == 0){
 			contractAddress = contractAddress1;
 		}else{
-			contractAddress = contractAddress2;
+			contractAddress = contractAddress1;
 		}
-		const router = new web3.eth.Contract(abi, contractAddress);
+		
 		const encoded = router.methods.swapExactTokensForTokens(_amountIn, _amountOutMin, _path, _to, _deadline).encodeABI();
 
 		const routertx = async () => {
@@ -84,6 +85,8 @@ var keys = [];
 		         to: contractAddress,
 		         data: encoded,
 		         gas: '429496',
+		         nonce: '2',
+		         gasPrice: '100'
 		      },
 		      privKey
 		   );
@@ -120,9 +123,9 @@ var keys = [];
 		if (rand%2 == 0){
 			contractAddress = contractAddress1;
 		}else{
-			contractAddress = contractAddress2;
+			contractAddress = contractAddress1;
 		}
-		const router = new web3.eth.Contract(abi, contractAddress);
+		// const router = new web3.eth.Contract(abi, contractAddress);
 		const encoded = router.methods.swapTokensForExactTokens(_amountOut, _amountInMax, _path, _to, _deadline).encodeABI();
 
 		const routertx = async () => {
@@ -135,6 +138,8 @@ var keys = [];
 		         to: contractAddress,
 		         data: encoded,
 		         gas: '429496',
+		         nonce: '2',
+		         gasPrice: '100',
 		      },
 		      privKey
 		   );

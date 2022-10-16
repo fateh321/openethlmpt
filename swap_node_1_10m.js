@@ -14,7 +14,7 @@ const contractAddress2 = '0x7214a59d65AB044392D6f049058bc572C6195D72';
 
 var queryParameter = ()=> new Promise( resolve =>{
 	var keys = [];
-	fs.createReadStream('out1m.csv')
+	fs.createReadStream('out10m.csv')
 	  .pipe(csv())
 	  .on('data', row => {
 	    keys.push(row);
@@ -32,8 +32,7 @@ queryParameter().then((res)=>
 	console.log(len);
 	batch = 450000;
 	const router = new web3.eth.Contract(abi, contractAddress1);
-	// const router2 = new web3.eth.Contract(abi, contractAddress2);
-	for (let i = batch; i < batch+16000; i++) {
+	for (let i = batch+16000; i < batch+32000; i++) {
 
 		// random_1 = Math.floor(Math.random() * 2); 
 		random_1 = i;
@@ -63,16 +62,13 @@ queryParameter().then((res)=>
 		var contractAddress;
 		// var rand = Math.floor(Math.random() * 2); 
 		var rand = i;
-		// var router;
 		// if (i%2 == 0){
 		if (rand%2 == 0){
-			// router = router1;
 			contractAddress = contractAddress1;
 		}else{
-			// router = router2;
 			contractAddress = contractAddress1;
 		}
-		
+		// const router = new web3.eth.Contract(abi, contractAddress);
 		const encoded = router.methods.swapExactTokensForTokens(_amountIn, _amountOutMin, _path, _to, _deadline).encodeABI();
 
 		const routertx = async () => {
@@ -119,13 +115,10 @@ queryParameter().then((res)=>
 		var contractAddress;
 		// var rand = Math.floor(Math.random() * 2); 
 		var rand = i;
-		// var router;
 		// if (i%2 == 0){
 		if (rand%2 == 0){
-			// router = router1;
 			contractAddress = contractAddress1;
 		}else{
-			// router = router2;
 			contractAddress = contractAddress1;
 		}
 		// const router = new web3.eth.Contract(abi, contractAddress);
