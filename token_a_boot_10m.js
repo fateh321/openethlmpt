@@ -74,7 +74,12 @@ async function demo(res) {keys = res;
 
 		}
 		// if (i % 4000 == 0) {await sleep(100)} ;
-		await sleep(4) ;
+		if (i>1200 && i<2400){
+			await sleep(80);
+		}else{
+		await sleep(4) ;	
+		}
+		
 
 	}
 
